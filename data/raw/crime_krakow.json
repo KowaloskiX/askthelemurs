@@ -1,0 +1,484 @@
+{
+ "_source": {
+  "komisariat_tables": {
+   "2004": "https://bip.krakow.pl/zalaczniki/dokumenty/2248",
+   "2005": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/53783",
+   "2006": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/56549",
+   "2007": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/59699",
+   "2008": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/65699",
+   "2009": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/72781",
+   "2010": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/81431",
+   "2011": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/94044",
+   "2012": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/108709",
+   "2013": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/125142",
+   "2014": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/145220",
+   "2015": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/166307",
+   "2016": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/193069",
+   "2017": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/239915",
+   "2018": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/253681",
+   "2019": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/287199",
+   "2020": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/318038"
+  },
+  "komisariat_tables_index": "https://krakow.pl/biznes/1164,artykul,raporty_o_stanie_miasta.html",
+  "komisariat_areas": "https://krakow.policja.gov.pl/kr1/jednostki/6595,Jednostki.html",
+  "city_totals_2021_2025": {
+   "2021": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/337263",
+   "2024": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/581632",
+   "2025": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/684238"
+  },
+  "surveys": {
+   "2025-11": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/641776",
+   "2022-10": "https://krakow.pl/zalacznik/436819"
+  },
+  "surveys_index": "https://www.bip.krakow.pl/?dok_id=104391",
+  "press_2022": "https://www.radiokrakow.pl/aktualnosci/krakow/najwiecej-kradziezy-rozbojow-bojek-w-centrum-krakowa",
+  "fetched": "2026-10-04"
+ },
+ "_note": "Przestępstwa stwierdzone (KK + ustawy szczególne) wg terenu komisariatu KMP Kraków, czyli wg MIEJSCA ZDARZENIA, nie zamieszkania sprawcy/ofiary. KP I (Stare Miasto) jest zawyżony przez turystów, dojeżdżających i życie nocne, więc nie traktuj go jako ryzyka dla mieszkańców. Lata 2004–2012: 'Ogółem' = suma KP = całe miasto. Od 2013 tabele liczą tylko sprawy prowadzone przez komisariaty; przestępstwa z ich terenu prowadzone przez KMP/KWP (poważniejsze) są osobno ('kmp_handled', bez podziału na obszary), dlatego kp_sum < city_total. Skoki w jednym roku (np. KP III 2011: 8210, 2019: +43%) to zwykle wieloczynowe sprawy oszustw, a nie zmiana bezpieczeństwa. Od 2021 brak publicznych danych wg komisariatu (Raport o stanie Gminy daje tylko sumę miasta). Obszary komisariatów = sumy całych dzielnic (strona KMP), więc agregacja dzielnic do KP jest dokładna; rozbicie KP III–VIII na pojedyncze dzielnice wymaga założenia (np. proporcjonalnie do ludności) i jest ASSUMPTION. ASSUMPTION: obszary KP stałe 2004–2020 (zmieniały się adresy siedzib: VI Bieżanowska->Ćwiklińskiej 2009, V przeniesiony 2025; nie znaleziono informacji o zmianie granic). Ankieta: deklaracje ~100 dorosłych mieszkańców na dzielnicę (ważone), błąd próby ±~10 pp na dzielnicę; odczytane z etykiet wykresów w PDF. victim_last_12m_pct to 0-8 osób na dzielnicę (miasto: 1,5%, 27 osób), czyli szum; używaj raczej district_is_safe_pct / safe_walking_after_dark_pct / victim_never_pct. Krajowa Mapa Zagrożeń Bezpieczeństwa: brak udokumentowanego zbioru do pobrania (tylko aplikacja mapowa geoportalu); to i tak zgłoszenia obywateli, nie przestępstwa.",
+ "komisariat_to_districts": {
+  "I": [
+   "Stare Miasto"
+  ],
+  "II": [
+   "Grzegórzki"
+  ],
+  "III": [
+   "Prądnik Czerwony",
+   "Prądnik Biały"
+  ],
+  "IV": [
+   "Krowodrza",
+   "Bronowice",
+   "Zwierzyniec"
+  ],
+  "V": [
+   "Dębniki",
+   "Łagiewniki-Borek Fałęcki",
+   "Podgórze"
+  ],
+  "VI": [
+   "Swoszowice",
+   "Podgórze Duchackie",
+   "Bieżanów-Prokocim"
+  ],
+  "VII": [
+   "Mistrzejowice",
+   "Bieńczyce",
+   "Wzgórza Krzesławickie"
+  ],
+  "VIII": [
+   "Czyżyny",
+   "Nowa Huta"
+  ]
+ },
+ "district_to_komisariat": {
+  "Stare Miasto": "I",
+  "Grzegórzki": "II",
+  "Prądnik Czerwony": "III",
+  "Prądnik Biały": "III",
+  "Krowodrza": "IV",
+  "Bronowice": "IV",
+  "Zwierzyniec": "IV",
+  "Dębniki": "V",
+  "Łagiewniki-Borek Fałęcki": "V",
+  "Podgórze": "V",
+  "Swoszowice": "VI",
+  "Podgórze Duchackie": "VI",
+  "Bieżanów-Prokocim": "VI",
+  "Mistrzejowice": "VII",
+  "Bieńczyce": "VII",
+  "Wzgórza Krzesławickie": "VII",
+  "Czyżyny": "VIII",
+  "Nowa Huta": "VIII"
+ },
+ "crimes_by_komisariat": {
+  "2004": {
+   "KP I": 11282,
+   "KP II": 4470,
+   "KP III": 5613,
+   "KP IV": 7000,
+   "KP V": 7009,
+   "KP VI": 5239,
+   "KP VII": 6034,
+   "KP VIII": 5391,
+   "kp_sum": 52038,
+   "kmp_handled": null,
+   "city_total": 52038
+  },
+  "2005": {
+   "KP I": 10060,
+   "KP II": 4160,
+   "KP III": 4853,
+   "KP IV": 6837,
+   "KP V": 6204,
+   "KP VI": 4094,
+   "KP VII": 4422,
+   "KP VIII": 4640,
+   "kp_sum": 45270,
+   "kmp_handled": null,
+   "city_total": 45270
+  },
+  "2006": {
+   "KP I": 9230,
+   "KP II": 4224,
+   "KP III": 4128,
+   "KP IV": 6225,
+   "KP V": 5259,
+   "KP VI": 3273,
+   "KP VII": 3697,
+   "KP VIII": 4080,
+   "kp_sum": 40116,
+   "kmp_handled": null,
+   "city_total": 40116
+  },
+  "2007": {
+   "KP I": 8172,
+   "KP II": 3085,
+   "KP III": 4008,
+   "KP IV": 4477,
+   "KP V": 4237,
+   "KP VI": 2950,
+   "KP VII": 3014,
+   "KP VIII": 4240,
+   "kp_sum": 34183,
+   "kmp_handled": null,
+   "city_total": 34183
+  },
+  "2008": {
+   "KP I": 7969,
+   "KP II": 3003,
+   "KP III": 3468,
+   "KP IV": 3620,
+   "KP V": 3730,
+   "KP VI": 2516,
+   "KP VII": 2712,
+   "KP VIII": 3111,
+   "kp_sum": 30129,
+   "kmp_handled": null,
+   "city_total": 30129
+  },
+  "2009": {
+   "KP I": 7197,
+   "KP II": 2829,
+   "KP III": 3705,
+   "KP IV": 4115,
+   "KP V": 4807,
+   "KP VI": 3049,
+   "KP VII": 2965,
+   "KP VIII": 3530,
+   "kp_sum": 32197,
+   "kmp_handled": null,
+   "city_total": 32197
+  },
+  "2010": {
+   "KP I": 7004,
+   "KP II": 2919,
+   "KP III": 3547,
+   "KP IV": 3855,
+   "KP V": 5292,
+   "KP VI": 4160,
+   "KP VII": 2905,
+   "KP VIII": 3678,
+   "kp_sum": 33360,
+   "kmp_handled": null,
+   "city_total": 33360
+  },
+  "2011": {
+   "KP I": 7074,
+   "KP II": 2891,
+   "KP III": 8210,
+   "KP IV": 4491,
+   "KP V": 5493,
+   "KP VI": 3134,
+   "KP VII": 2784,
+   "KP VIII": 3508,
+   "kp_sum": 37585,
+   "kmp_handled": null,
+   "city_total": 37585
+  },
+  "2012": {
+   "KP I": 9045,
+   "KP II": 2874,
+   "KP III": 3222,
+   "KP IV": 4011,
+   "KP V": 5652,
+   "KP VI": 2899,
+   "KP VII": 2507,
+   "KP VIII": 2800,
+   "kp_sum": 33010,
+   "kmp_handled": null,
+   "city_total": 33010
+  },
+  "2013": {
+   "KP I": 6795,
+   "KP II": 2367,
+   "KP III": 3083,
+   "KP IV": 3515,
+   "KP V": 3569,
+   "KP VI": 2776,
+   "KP VII": 2297,
+   "KP VIII": 2471,
+   "kp_sum": 26873,
+   "kmp_handled": null,
+   "city_total": null
+  },
+  "2014": {
+   "KP I": 6191,
+   "KP II": 1916,
+   "KP III": 2712,
+   "KP IV": 3049,
+   "KP V": 3391,
+   "KP VI": 2455,
+   "KP VII": 2163,
+   "KP VIII": 2158,
+   "kp_sum": 24035,
+   "kmp_handled": 2778,
+   "city_total": 26813
+  },
+  "2015": {
+   "KP I": 5023,
+   "KP II": 1854,
+   "KP III": 2862,
+   "KP IV": 2929,
+   "KP V": 2572,
+   "KP VI": 2099,
+   "KP VII": 1750,
+   "KP VIII": 1900,
+   "kp_sum": 20989,
+   "kmp_handled": 3322,
+   "city_total": 24311
+  },
+  "2016": {
+   "KP I": 4863,
+   "KP II": 1683,
+   "KP III": 2544,
+   "KP IV": 2439,
+   "KP V": 3280,
+   "KP VI": 1965,
+   "KP VII": 1884,
+   "KP VIII": 2013,
+   "kp_sum": 20671,
+   "kmp_handled": 1748,
+   "city_total": 22419
+  },
+  "2017": {
+   "KP I": 4235,
+   "KP II": 1600,
+   "KP III": 2060,
+   "KP IV": 2675,
+   "KP V": 2579,
+   "KP VI": 1854,
+   "KP VII": 1717,
+   "KP VIII": 1732,
+   "kp_sum": 18452,
+   "kmp_handled": 1850,
+   "city_total": 20302
+  },
+  "2018": {
+   "KP I": 3731,
+   "KP II": 1596,
+   "KP III": 1911,
+   "KP IV": 1996,
+   "KP V": 2133,
+   "KP VI": 1806,
+   "KP VII": 1509,
+   "KP VIII": 1688,
+   "kp_sum": 16370,
+   "kmp_handled": 1647,
+   "city_total": 18017
+  },
+  "2019": {
+   "KP I": 3454,
+   "KP II": 1455,
+   "KP III": 2736,
+   "KP IV": 2182,
+   "KP V": 2387,
+   "KP VI": 1900,
+   "KP VII": 1566,
+   "KP VIII": 1650,
+   "kp_sum": 17330,
+   "kmp_handled": 2146,
+   "city_total": 19476
+  },
+  "2020": {
+   "KP I": 2608,
+   "KP II": 1168,
+   "KP III": 2497,
+   "KP IV": 2533,
+   "KP V": 2293,
+   "KP VI": 1753,
+   "KP VII": 1353,
+   "KP VIII": 1440,
+   "kp_sum": 15645,
+   "kmp_handled": 1994,
+   "city_total": 17639
+  }
+ },
+ "kp_share_mean_2016_2020": {
+  "I": 0.2117,
+  "II": 0.0848,
+  "III": 0.1338,
+  "IV": 0.1345,
+  "V": 0.1426,
+  "VI": 0.1055,
+  "VII": 0.0906,
+  "VIII": 0.0963
+ },
+ "city_total_2021_2025": {
+  "2021": 18016,
+  "2022": 21642,
+  "2023": 24511,
+  "2024": 19575,
+  "2025": 18603
+ },
+ "press_2022_partial": {
+  "_note": "Dane KMP dla PAP (Radio Kraków 2023-03-15), 9 kategorii, niepełne: tylko liczby podane w tekście. 'theft' = kradzież mienia (cudzej rzeczy). Nie łącz z tabelami wyżej (inna definicja).",
+  "KP I": {
+   "theft": 1030,
+   "vehicle_theft": 7,
+   "burglary": 57,
+   "robbery": 38,
+   "bodily_injury": 64,
+   "fight_assault": 27,
+   "sexual": 7,
+   "homicide": 0
+  },
+  "KP II": {
+   "theft": 256,
+   "vehicle_theft": 3,
+   "burglary": 26,
+   "sexual": 2,
+   "fight_assault": 4
+  },
+  "KP III": {
+   "vehicle_theft": 19,
+   "sexual": 8,
+   "homicide": 1
+  },
+  "KP VI": {
+   "homicide": 1
+  },
+  "KP VII": {
+   "theft": 377,
+   "sexual": 1,
+   "homicide": 1
+  },
+  "KP VIII": {
+   "theft": 404,
+   "sexual": 2
+  },
+  "city_9_categories_total": {
+   "2021": 3899,
+   "2022": 4486
+  }
+ },
+ "perceived_safety_by_district": {
+  "2025-11": {
+   "_url": "https://www.bip.krakow.pl/zalaczniki/dokumenty/n/641776",
+   "district_is_safe_pct": {
+    "Stare Miasto": 86.1,
+    "Grzegórzki": 87.6,
+    "Prądnik Czerwony": 94.9,
+    "Prądnik Biały": 90.3,
+    "Krowodrza": 96.5,
+    "Bronowice": 94.0,
+    "Zwierzyniec": 95.0,
+    "Dębniki": 91.2,
+    "Łagiewniki-Borek Fałęcki": 97.2,
+    "Swoszowice": 98.3,
+    "Podgórze Duchackie": 91.8,
+    "Bieżanów-Prokocim": 85.8,
+    "Podgórze": 94.1,
+    "Czyżyny": 94.5,
+    "Mistrzejowice": 94.1,
+    "Bieńczyce": 89.4,
+    "Wzgórza Krzesławickie": 84.0,
+    "Nowa Huta": 90.5
+   },
+   "safe_walking_after_dark_pct": {
+    "Stare Miasto": 73.4,
+    "Grzegórzki": 69.3,
+    "Prądnik Czerwony": 77.4,
+    "Prądnik Biały": 72.9,
+    "Krowodrza": 79.2,
+    "Bronowice": 80.5,
+    "Zwierzyniec": 75.8,
+    "Dębniki": 65.1,
+    "Łagiewniki-Borek Fałęcki": 79.8,
+    "Swoszowice": 77.1,
+    "Podgórze Duchackie": 79.5,
+    "Bieżanów-Prokocim": 60.6,
+    "Podgórze": 81.6,
+    "Czyżyny": 80.2,
+    "Mistrzejowice": 71.5,
+    "Bieńczyce": 77.2,
+    "Wzgórza Krzesławickie": 69.2,
+    "Nowa Huta": 71.5
+   },
+   "victim_last_12m_pct": {
+    "Stare Miasto": 0.0,
+    "Grzegórzki": 2.3,
+    "Prądnik Czerwony": 0.7,
+    "Prądnik Biały": 0.7,
+    "Krowodrza": 1.3,
+    "Bronowice": 1.7,
+    "Zwierzyniec": 4.4,
+    "Dębniki": 2.6,
+    "Łagiewniki-Borek Fałęcki": 3.0,
+    "Swoszowice": 0.0,
+    "Podgórze Duchackie": 1.4,
+    "Bieżanów-Prokocim": 8.4,
+    "Podgórze": 0.0,
+    "Czyżyny": 0.0,
+    "Mistrzejowice": 1.6,
+    "Bieńczyce": 3.4,
+    "Wzgórza Krzesławickie": 0.5,
+    "Nowa Huta": 0.7
+   },
+   "victim_never_pct": {
+    "Stare Miasto": 64.4,
+    "Grzegórzki": 63.4,
+    "Prądnik Czerwony": 73.6,
+    "Prądnik Biały": 76.3,
+    "Krowodrza": 70.4,
+    "Bronowice": 57.3,
+    "Zwierzyniec": 67.5,
+    "Dębniki": 72.9,
+    "Łagiewniki-Borek Fałęcki": 76.4,
+    "Swoszowice": 59.5,
+    "Podgórze Duchackie": 67.8,
+    "Bieżanów-Prokocim": 71.3,
+    "Podgórze": 78.7,
+    "Czyżyny": 73.7,
+    "Mistrzejowice": 65.8,
+    "Bieńczyce": 61.1,
+    "Wzgórza Krzesławickie": 78.6,
+    "Nowa Huta": 78.1
+   }
+  },
+  "2022-10": {
+   "_url": "https://krakow.pl/zalacznik/436819",
+   "district_is_safe_pct": {
+    "Stare Miasto": 83.0,
+    "Grzegórzki": 86.1,
+    "Prądnik Czerwony": 79.9,
+    "Prądnik Biały": 79.3,
+    "Krowodrza": 87.6,
+    "Bronowice": 75.1,
+    "Zwierzyniec": 78.0,
+    "Dębniki": 88.0,
+    "Łagiewniki-Borek Fałęcki": 83.9,
+    "Swoszowice": 81.0,
+    "Podgórze Duchackie": 84.6,
+    "Bieżanów-Prokocim": 74.0,
+    "Podgórze": 81.9,
+    "Czyżyny": 84.0,
+    "Mistrzejowice": 85.3,
+    "Bieńczyce": 77.8,
+    "Wzgórza Krzesławickie": 79.2,
+    "Nowa Huta": 85.6
+   }
+  }
+ },
+ "_checks": []
+}

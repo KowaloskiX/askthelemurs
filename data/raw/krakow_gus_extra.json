@@ -1,0 +1,2434 @@
+{
+ "_source": "GUS BDL API (bdl.stat.gov.pl/api/v1), fetched by src/fetch_bdl_extra.py; units: {\"gmina\": \"011212161011\", \"powiat\": \"011212161000\", \"podregion\": \"011212100000\", \"region\": \"011210000000\"}",
+ "_note": "year = latest year with >=50% of the item's variables filled (others null); NSP 2021 items are census (31 III 2021). region = Małopolskie, not Kraków.",
+ "education": {
+  "edu_by_sex_13plus": {
+   "var_id": {
+    "total": {
+     "total": 1719968,
+     "higher": 1719969,
+     "secondary_postsec_total": 1719970,
+     "secondary_general": 1719971,
+     "secondary_vocational": 1719972,
+     "basic_vocational": 1719973,
+     "lower_secondary": 1719974,
+     "primary": 1719975,
+     "below_primary_or_none": 1719976,
+     "unknown": 1719977
+    },
+    "M": {
+     "total": 1719978,
+     "higher": 1719979,
+     "secondary_postsec_total": 1719980,
+     "secondary_general": 1719981,
+     "secondary_vocational": 1719982,
+     "basic_vocational": 1719983,
+     "lower_secondary": 1719984,
+     "primary": 1719985,
+     "below_primary_or_none": 1719986,
+     "unknown": 1719987
+    },
+    "F": {
+     "total": 1719988,
+     "higher": 1719989,
+     "secondary_postsec_total": 1719990,
+     "secondary_general": 1719991,
+     "secondary_vocational": 1719992,
+     "basic_vocational": 1719993,
+     "lower_secondary": 1719994,
+     "primary": 1719995,
+     "below_primary_or_none": 1719996,
+     "unknown": 1719997
+    }
+   },
+   "unit": "persons",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": {
+     "total": 691962,
+     "higher": 302636,
+     "secondary_postsec_total": 218784,
+     "secondary_general": 86602,
+     "secondary_vocational": 104038,
+     "basic_vocational": 85715,
+     "lower_secondary": 13224,
+     "primary": 42064,
+     "below_primary_or_none": 13567,
+     "unknown": 15972
+    },
+    "M": {
+     "total": 320484,
+     "higher": 129782,
+     "secondary_postsec_total": 102080,
+     "secondary_general": 36681,
+     "secondary_vocational": 56895,
+     "basic_vocational": 48203,
+     "lower_secondary": 7493,
+     "primary": 17775,
+     "below_primary_or_none": 6938,
+     "unknown": 8213
+    },
+    "F": {
+     "total": 371478,
+     "higher": 172854,
+     "secondary_postsec_total": 116704,
+     "secondary_general": 49921,
+     "secondary_vocational": 47143,
+     "basic_vocational": 37512,
+     "lower_secondary": 5731,
+     "primary": 24289,
+     "below_primary_or_none": 6629,
+     "unknown": 7759
+    }
+   },
+   "note": "NSP 2021, P4318, resident population 13+"
+  },
+  "edu_by_age_13plus": {
+   "var_id": {
+    "total": {
+     "total": 1701450,
+     "higher": 1701451,
+     "secondary_postsec_total": 1701452,
+     "secondary_general": 1701453,
+     "secondary_vocational": 1701454,
+     "basic_vocational": 1701455,
+     "lower_secondary_or_primary": 1701456,
+     "below_primary_or_none": 1701457,
+     "unknown": 1701458
+    },
+    "<=19": {
+     "total": 1701459,
+     "higher": 1701460,
+     "secondary_postsec_total": 1701461,
+     "secondary_general": 1701462,
+     "secondary_vocational": 1701463,
+     "basic_vocational": 1701464,
+     "lower_secondary_or_primary": 1701465,
+     "below_primary_or_none": 1701466,
+     "unknown": 1701467
+    },
+    "20-24": {
+     "total": 1701468,
+     "higher": 1701469,
+     "secondary_postsec_total": 1701470,
+     "secondary_general": 1701471,
+     "secondary_vocational": 1701472,
+     "basic_vocational": 1701473,
+     "lower_secondary_or_primary": 1701474,
+     "below_primary_or_none": 1701475,
+     "unknown": 1701476
+    },
+    "25-29": {
+     "total": 1701477,
+     "higher": 1701478,
+     "secondary_postsec_total": 1701479,
+     "secondary_general": 1701480,
+     "secondary_vocational": 1701481,
+     "basic_vocational": 1701482,
+     "lower_secondary_or_primary": 1701483,
+     "below_primary_or_none": 1701484,
+     "unknown": 1701485
+    },
+    "30-34": {
+     "total": 1701486,
+     "higher": 1701487,
+     "secondary_postsec_total": 1701488,
+     "secondary_general": 1701489,
+     "secondary_vocational": 1701490,
+     "basic_vocational": 1701491,
+     "lower_secondary_or_primary": 1701492,
+     "below_primary_or_none": 1701493,
+     "unknown": 1701494
+    },
+    "35-39": {
+     "total": 1701495,
+     "higher": 1701496,
+     "secondary_postsec_total": 1701497,
+     "secondary_general": 1701498,
+     "secondary_vocational": 1701499,
+     "basic_vocational": 1701500,
+     "lower_secondary_or_primary": 1701501,
+     "below_primary_or_none": 1701502,
+     "unknown": 1701503
+    },
+    "40-44": {
+     "total": 1701504,
+     "higher": 1701505,
+     "secondary_postsec_total": 1701506,
+     "secondary_general": 1701507,
+     "secondary_vocational": 1701508,
+     "basic_vocational": 1701509,
+     "lower_secondary_or_primary": 1701510,
+     "below_primary_or_none": 1701511,
+     "unknown": 1701512
+    },
+    "45-49": {
+     "total": 1701513,
+     "higher": 1701514,
+     "secondary_postsec_total": 1701515,
+     "secondary_general": 1701516,
+     "secondary_vocational": 1701517,
+     "basic_vocational": 1701518,
+     "lower_secondary_or_primary": 1701519,
+     "below_primary_or_none": 1701520,
+     "unknown": 1701521
+    },
+    "50-54": {
+     "total": 1701522,
+     "higher": 1701523,
+     "secondary_postsec_total": 1701524,
+     "secondary_general": 1701525,
+     "secondary_vocational": 1701526,
+     "basic_vocational": 1701527,
+     "lower_secondary_or_primary": 1701528,
+     "below_primary_or_none": 1701529,
+     "unknown": 1701530
+    },
+    "55-59": {
+     "total": 1701531,
+     "higher": 1701532,
+     "secondary_postsec_total": 1701533,
+     "secondary_general": 1701534,
+     "secondary_vocational": 1701535,
+     "basic_vocational": 1701536,
+     "lower_secondary_or_primary": 1701537,
+     "below_primary_or_none": 1701538,
+     "unknown": 1701539
+    },
+    "60-64": {
+     "total": 1701540,
+     "higher": 1701541,
+     "secondary_postsec_total": 1701542,
+     "secondary_general": 1701543,
+     "secondary_vocational": 1701544,
+     "basic_vocational": 1701545,
+     "lower_secondary_or_primary": 1701546,
+     "below_primary_or_none": 1701547,
+     "unknown": 1701548
+    },
+    "65+": {
+     "total": 1701549,
+     "higher": 1701550,
+     "secondary_postsec_total": 1701551,
+     "secondary_general": 1701552,
+     "secondary_vocational": 1701553,
+     "basic_vocational": 1701554,
+     "lower_secondary_or_primary": 1701555,
+     "below_primary_or_none": 1701556,
+     "unknown": 1701557
+    }
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2021",
+   "value": {
+    "total": {
+     "total": 691962,
+     "higher": 302636,
+     "secondary_postsec_total": 218784,
+     "secondary_general": 86602,
+     "secondary_vocational": 104038,
+     "basic_vocational": 85715,
+     "lower_secondary_or_primary": 55288,
+     "below_primary_or_none": 13567,
+     "unknown": 15972
+    },
+    "<=19": {
+     "total": 38366,
+     "higher": 0,
+     "secondary_postsec_total": 5931,
+     "secondary_general": 4851,
+     "secondary_vocational": 905,
+     "basic_vocational": 272,
+     "lower_secondary_or_primary": 20245,
+     "below_primary_or_none": 11569,
+     "unknown": 349
+    },
+    "20-24": {
+     "total": 42696,
+     "higher": 12878,
+     "secondary_postsec_total": 24926,
+     "secondary_general": 16361,
+     "secondary_vocational": 7014,
+     "basic_vocational": 1268,
+     "lower_secondary_or_primary": 1700,
+     "below_primary_or_none": 110,
+     "unknown": 1814
+    },
+    "25-29": {
+     "total": 71086,
+     "higher": 48357,
+     "secondary_postsec_total": 16303,
+     "secondary_general": 9066,
+     "secondary_vocational": 5464,
+     "basic_vocational": 1725,
+     "lower_secondary_or_primary": 1603,
+     "below_primary_or_none": 89,
+     "unknown": 3009
+    },
+    "30-34": {
+     "total": 76433,
+     "higher": 53976,
+     "secondary_postsec_total": 16068,
+     "secondary_general": 8484,
+     "secondary_vocational": 5152,
+     "basic_vocational": 2917,
+     "lower_secondary_or_primary": 2257,
+     "below_primary_or_none": 153,
+     "unknown": 1062
+    },
+    "35-39": {
+     "total": 74348,
+     "higher": 47996,
+     "secondary_postsec_total": 17370,
+     "secondary_general": 6821,
+     "secondary_vocational": 7492,
+     "basic_vocational": 5276,
+     "lower_secondary_or_primary": 1920,
+     "below_primary_or_none": 158,
+     "unknown": 1628
+    },
+    "40-44": {
+     "total": 62041,
+     "higher": 34823,
+     "secondary_postsec_total": 16833,
+     "secondary_general": 5319,
+     "secondary_vocational": 8524,
+     "basic_vocational": 6696,
+     "lower_secondary_or_primary": 1742,
+     "below_primary_or_none": 215,
+     "unknown": 1732
+    },
+    "45-49": {
+     "total": 51414,
+     "higher": 24076,
+     "secondary_postsec_total": 16006,
+     "secondary_general": 4947,
+     "secondary_vocational": 8637,
+     "basic_vocational": 8121,
+     "lower_secondary_or_primary": 1803,
+     "below_primary_or_none": 174,
+     "unknown": 1234
+    },
+    "50-54": {
+     "total": 40174,
+     "higher": 15262,
+     "secondary_postsec_total": 14089,
+     "secondary_general": 4117,
+     "secondary_vocational": 7940,
+     "basic_vocational": 8123,
+     "lower_secondary_or_primary": 1645,
+     "below_primary_or_none": 114,
+     "unknown": 941
+    },
+    "55-59": {
+     "total": 38017,
+     "higher": 11781,
+     "secondary_postsec_total": 14529,
+     "secondary_general": 3744,
+     "secondary_vocational": 8572,
+     "basic_vocational": 8869,
+     "lower_secondary_or_primary": 1842,
+     "below_primary_or_none": 104,
+     "unknown": 892
+    },
+    "60-64": {
+     "total": 45464,
+     "higher": 12593,
+     "secondary_postsec_total": 18471,
+     "secondary_general": 4660,
+     "secondary_vocational": 10754,
+     "basic_vocational": 10896,
+     "lower_secondary_or_primary": 2540,
+     "below_primary_or_none": 96,
+     "unknown": 868
+    },
+    "65+": {
+     "total": 151923,
+     "higher": 40894,
+     "secondary_postsec_total": 58258,
+     "secondary_general": 18232,
+     "secondary_vocational": 33584,
+     "basic_vocational": 31552,
+     "lower_secondary_or_primary": 17991,
+     "below_primary_or_none": 785,
+     "unknown": 2443
+    }
+   },
+   "note": "NSP 2021, P4320, resident 13+; '<=19' means 13-19; no sex split at this level"
+  }
+ },
+ "households": {
+  "households_by_size": {
+   "var_id": {
+    "total": 1652549,
+    "1p": 1652550,
+    "2p": 1652551,
+    "3p": 1652552,
+    "4p": 1652553,
+    "5p_plus": 1652554,
+    "persons_in_households": 1652555,
+    "avg_household_size": 1652556
+   },
+   "unit": "households (people / avg for last two)",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": 320708,
+    "1p": 104198,
+    "2p": 93278,
+    "3p": 57090,
+    "4p": 39970,
+    "5p_plus": 26172,
+    "persons_in_households": 778210,
+    "avg_household_size": 2.43
+   },
+   "note": "NSP 2021, P4287"
+  },
+  "households_by_family_composition": {
+   "var_id": {
+    "total": 1641709,
+    "one_family": 1641710,
+    "two_family": 1641711,
+    "three_plus_family": 1641712,
+    "nonfamily_total": 1641713,
+    "nonfamily_1person": 1641714,
+    "nonfamily_multiperson": 1641715
+   },
+   "unit": "households",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": 320708,
+    "one_family": 172485,
+    "two_family": 13882,
+    "three_plus_family": 1822,
+    "nonfamily_total": 132519,
+    "nonfamily_1person": 104198,
+    "nonfamily_multiperson": 28321
+   },
+   "note": "NSP 2021, P4225"
+  },
+  "families_by_children": {
+   "var_id": {
+    "total": 1641728,
+    "no_children": 1641729,
+    "with_children": 1641730,
+    "1_child": 1641731,
+    "2_children": 1641732,
+    "3_children": 1641733,
+    "4plus_children": 1641734,
+    "children_total": 1641735,
+    "avg_children_per_family": 1641736
+   },
+   "unit": "families (persons / avg for last two)",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": 206225,
+    "no_children": 62540,
+    "with_children": 143685,
+    "1_child": 86700,
+    "2_children": 47148,
+    "3_children": 8285,
+    "4plus_children": 1552,
+    "children_total": 212594,
+    "avg_children_per_family": 1.48
+   },
+   "note": "NSP 2021, P4227; 'children' = own children living in family, any age"
+  },
+  "families_by_type": {
+   "var_id": {
+    "total": 1641716,
+    "married_total": 1641717,
+    "married_no_children": 1641718,
+    "married_with_children": 1641719,
+    "cohabiting_total": 1641720,
+    "cohabiting_no_children": 1641721,
+    "cohabiting_with_children": 1641722,
+    "single_mothers": 1641723,
+    "single_fathers": 1641724
+   },
+   "unit": "families",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": 206225,
+    "married_total": 129629,
+    "married_no_children": 50075,
+    "married_with_children": 79554,
+    "cohabiting_total": 22662,
+    "cohabiting_no_children": 12465,
+    "cohabiting_with_children": 10197,
+    "single_mothers": 46628,
+    "single_fathers": 7306
+   },
+   "note": "NSP 2021, P4226"
+  },
+  "households_by_sex_age_of_reference_person": {
+   "var_id": {
+    "total": {
+     "total": 1734697,
+     "<=24": 1734698,
+     "25-29": 1734699,
+     "30-34": 1734700,
+     "35-39": 1734701,
+     "40-44": 1734702,
+     "45-49": 1734703,
+     "50-54": 1734704,
+     "55-59": 1734705,
+     "60-64": 1734706,
+     "65-69": 1734707,
+     "70-74": 1734708,
+     "75+": 1734709
+    },
+    "M": {
+     "total": 1734710,
+     "<=24": 1734711,
+     "25-29": 1734712,
+     "30-34": 1734713,
+     "35-39": 1734714,
+     "40-44": 1734715,
+     "45-49": 1734716,
+     "50-54": 1734717,
+     "55-59": 1734718,
+     "60-64": 1734719,
+     "65-69": 1734720,
+     "70-74": 1734721,
+     "75+": 1734722
+    },
+    "F": {
+     "total": 1734723,
+     "<=24": 1734724,
+     "25-29": 1734725,
+     "30-34": 1734726,
+     "35-39": 1734727,
+     "40-44": 1734728,
+     "45-49": 1734729,
+     "50-54": 1734730,
+     "55-59": 1734731,
+     "60-64": 1734732,
+     "65-69": 1734733,
+     "70-74": 1734734,
+     "75+": 1734735
+    }
+   },
+   "unit": "households",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": {
+     "total": 320708,
+     "<=24": 10726,
+     "25-29": 26078,
+     "30-34": 37664,
+     "35-39": 42211,
+     "40-44": 38367,
+     "45-49": 32881,
+     "50-54": 26558,
+     "55-59": 29244,
+     "60-64": 18236,
+     "65-69": 18381,
+     "70-74": 15176,
+     "75+": 25186
+    },
+    "M": {
+     "total": 155080,
+     "<=24": 5295,
+     "25-29": 14255,
+     "30-34": 21819,
+     "35-39": 24213,
+     "40-44": 21979,
+     "45-49": 18540,
+     "50-54": 14607,
+     "55-59": 14042,
+     "60-64": 6176,
+     "65-69": 5356,
+     "70-74": 3544,
+     "75+": 5254
+    },
+    "F": {
+     "total": 165628,
+     "<=24": 5431,
+     "25-29": 11823,
+     "30-34": 15845,
+     "35-39": 17998,
+     "40-44": 16388,
+     "45-49": 14341,
+     "50-54": 11951,
+     "55-59": 15202,
+     "60-64": 12060,
+     "65-69": 13025,
+     "70-74": 11632,
+     "75+": 19932
+    }
+   },
+   "note": "NSP 2021, P4462; reference person (reprezentant) age/sex"
+  },
+  "marital_status_15plus": {
+   "var_id": {
+    "total": {
+     "total": 1652557,
+     "never_married": 1652558,
+     "married": 1652559,
+     "widowed": 1652560,
+     "divorced": 1652561,
+     "unknown": 1652562
+    },
+    "M": {
+     "total": 1652563,
+     "never_married": 1652564,
+     "married": 1652565,
+     "widowed": 1652566,
+     "divorced": 1652567,
+     "unknown": 1652568
+    },
+    "F": {
+     "total": 1652569,
+     "never_married": 1652570,
+     "married": 1652571,
+     "widowed": 1652572,
+     "divorced": 1652573,
+     "unknown": 1652574
+    }
+   },
+   "unit": "persons",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": {
+     "total": 680267,
+     "never_married": 219000,
+     "married": 357409,
+     "widowed": 46083,
+     "divorced": 53719,
+     "unknown": 4056
+    },
+    "M": {
+     "total": 314496,
+     "never_married": 110392,
+     "married": 172014,
+     "widowed": 8403,
+     "divorced": 21687,
+     "unknown": 2000
+    },
+    "F": {
+     "total": 365771,
+     "never_married": 108608,
+     "married": 185395,
+     "widowed": 37680,
+     "divorced": 32032,
+     "unknown": 2056
+    }
+   },
+   "note": "NSP 2021, P4288, resident 15+; legal status"
+  }
+ },
+ "students": {
+  "he_students_graduates": {
+   "var_id": {
+    "institutions": 377826,
+    "branches": 377821,
+    "students_total": 377822,
+    "students_F": 377825,
+    "students_M": 377823,
+    "graduates_total": 377819,
+    "graduates_F": 377820,
+    "graduates_M": 377824
+   },
+   "unit": "units / persons",
+   "level": "gmina 011212161011",
+   "year": "2024",
+   "value": {
+    "institutions": 17,
+    "branches": 4,
+    "students_total": 137784,
+    "students_F": 80488,
+    "students_M": 57296,
+    "graduates_total": 32069,
+    "graduates_F": 19478,
+    "graduates_M": 12591
+   },
+   "note": "P3226; year = start of academic year (2024 = 2024/25), stan na 31 XII"
+  },
+  "he_by_supervising_ministry": {
+   "var_id": {
+    "all": {
+     "students_total": 1618483,
+     "students_M": 1618484,
+     "students_F": 1618485,
+     "graduates_total": 1618486,
+     "graduates_M": 1618487,
+     "graduates_F": 1618488
+    },
+    "science_ministry": {
+     "students_total": 1618489,
+     "students_M": 1618490,
+     "students_F": 1618491,
+     "graduates_total": 1618492,
+     "graduates_M": 1618493,
+     "graduates_F": 1618494
+    },
+    "health_ministry": {
+     "students_total": 1618495,
+     "students_M": 1618496,
+     "students_F": 1618497,
+     "graduates_total": 1618498,
+     "graduates_M": 1618499,
+     "graduates_F": 1618500
+    },
+    "culture_ministry_arts": {
+     "students_total": 1618507,
+     "students_M": 1618508,
+     "students_F": 1618509,
+     "graduates_total": 1618510,
+     "graduates_M": 1618511,
+     "graduates_F": 1618512
+    },
+    "defence_interior": {
+     "students_total": 1618513,
+     "students_M": 1618514,
+     "students_F": 1618515,
+     "graduates_total": 1618516,
+     "graduates_M": 1618517,
+     "graduates_F": 1618518
+    },
+    "church": {
+     "students_total": 1618519,
+     "students_M": 1618520,
+     "students_F": 1618521,
+     "graduates_total": 1618522,
+     "graduates_M": 1618523,
+     "graduates_F": 1618524
+    }
+   },
+   "unit": "persons",
+   "level": "podregion 011212100000",
+   "year": "2024",
+   "value": {
+    "all": {
+     "students_total": 137784,
+     "students_M": 57296,
+     "students_F": 80488,
+     "graduates_total": 32069,
+     "graduates_M": 12591,
+     "graduates_F": 19478
+    },
+    "science_ministry": {
+     "students_total": 130307,
+     "students_M": 55227,
+     "students_F": 75080,
+     "graduates_total": 30445,
+     "graduates_M": 12127,
+     "graduates_F": 18318
+    },
+    "health_ministry": {
+     "students_total": 0,
+     "students_M": 0,
+     "students_F": 0,
+     "graduates_total": 0,
+     "graduates_M": 0,
+     "graduates_F": 0
+    },
+    "culture_ministry_arts": {
+     "students_total": 1878,
+     "students_M": 643,
+     "students_F": 1235,
+     "graduates_total": 456,
+     "graduates_M": 169,
+     "graduates_F": 287
+    },
+    "defence_interior": {
+     "students_total": 0,
+     "students_M": 0,
+     "students_F": 0,
+     "graduates_total": 0,
+     "graduates_M": 0,
+     "graduates_F": 0
+    },
+    "church": {
+     "students_total": 5599,
+     "students_M": 1426,
+     "students_F": 4173,
+     "graduates_total": 1168,
+     "graduates_M": 295,
+     "graduates_F": 873
+    }
+   },
+   "note": "P4023"
+  },
+  "students_to_pop_19_24_ratio": {
+   "var_id": 1621850,
+   "unit": "ratio",
+   "level": "podregion 011212100000",
+   "year": "2024",
+   "value": 377.7,
+   "note": "P4058; students / residents aged 19-24"
+  },
+  "foreign_students_pct_malopolskie": {
+   "var_id": 453694,
+   "unit": "%",
+   "level": "region 011210000000",
+   "year": "2024",
+   "value": 6.5,
+   "note": "P3449; region Małopolskie, not Kraków-only"
+  },
+  "students_per_10k_malopolskie": {
+   "var_id": {
+    "per_10k_pop": 60194,
+    "per_10k_pop_19_24": 60195
+   },
+   "unit": "persons",
+   "level": "region 011210000000",
+   "year": "2024",
+   "value": {
+    "per_10k_pop": 457,
+    "per_10k_pop_19_24": 7741
+   },
+   "note": "P2383; region level"
+  }
+ },
+ "pensions": {
+  "pensioners_avg_count_malopolskie": {
+   "var_id": {
+    "all_pensioners": 155055,
+    "zus_total": 155056,
+    "zus_old_age": 155051,
+    "zus_disability": 155053,
+    "zus_survivor": 155052,
+    "krus_farmers": 155054
+   },
+   "unit": "persons",
+   "level": "region 011210000000",
+   "year": "2025",
+   "value": {
+    "all_pensioners": 765980,
+    "zus_total": 676451,
+    "zus_old_age": 534428,
+    "zus_disability": 41600,
+    "zus_survivor": 100422,
+    "krus_farmers": 89529
+   },
+   "note": "P2861; region (=voivodeship) only, no powiat data in BDL"
+  },
+  "avg_monthly_pension_gross_malopolskie": {
+   "var_id": {
+    "zus_total": 155057,
+    "zus_old_age": 155058,
+    "zus_disability": 155059,
+    "zus_survivor": 155060,
+    "krus_farmers": 155061,
+    "zus_old_age_pct_of_avg_wage": 288075
+   },
+   "unit": "PLN",
+   "level": "region 011210000000",
+   "year": "2025",
+   "value": {
+    "zus_total": 3968.69,
+    "zus_old_age": 4085.1,
+    "zus_disability": 3401.87,
+    "zus_survivor": 3583.97,
+    "krus_farmers": 2137.49,
+    "zus_old_age_pct_of_avg_wage": null
+   },
+   "note": "P2860; region only"
+  },
+  "main_income_source_by_sex": {
+   "var_id": {
+    "total": {
+     "total": 1735107,
+     "employment": 1735108,
+     "self_employment": 1735109,
+     "old_age_pension": 1735110,
+     "disability_pension": 1735111,
+     "other_sources": 1735112,
+     "dependent_or_unknown": 1735113
+    },
+    "M": {
+     "total": 1735114,
+     "employment": 1735115,
+     "self_employment": 1735116,
+     "old_age_pension": 1735117,
+     "disability_pension": 1735118,
+     "other_sources": 1735119,
+     "dependent_or_unknown": 1735120
+    },
+    "F": {
+     "total": 1735121,
+     "employment": 1735122,
+     "self_employment": 1735123,
+     "old_age_pension": 1735124,
+     "disability_pension": 1735125,
+     "other_sources": 1735126,
+     "dependent_or_unknown": 1735127
+    }
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2021",
+   "value": {
+    "total": {
+     "total": 800653,
+     "employment": 316594,
+     "self_employment": 45676,
+     "old_age_pension": 144053,
+     "disability_pension": 35219,
+     "other_sources": 21857,
+     "dependent_or_unknown": 237254
+    },
+    "M": {
+     "total": 373899,
+     "employment": 150616,
+     "self_employment": 31100,
+     "old_age_pension": 54857,
+     "disability_pension": 10068,
+     "other_sources": 7877,
+     "dependent_or_unknown": 119381
+    },
+    "F": {
+     "total": 426754,
+     "employment": 165978,
+     "self_employment": 14576,
+     "old_age_pension": 89196,
+     "disability_pension": 25151,
+     "other_sources": 13980,
+     "dependent_or_unknown": 117873
+    }
+   },
+   "note": "NSP 2021, P4488 (ludność, not resident-only)"
+  }
+ },
+ "labour": {
+  "mean_gross_wage_by_residence_monthly": {
+   "var_id": {
+    "total": {
+     "01": 1749925,
+     "02": 1749931,
+     "03": 1749937,
+     "04": 1749943,
+     "05": 1749949,
+     "06": 1749955,
+     "07": 1749961,
+     "08": 1749967,
+     "09": 1749973,
+     "10": 1749979,
+     "11": 1749985,
+     "12": 1749991
+    },
+    "M": {
+     "01": 1749926,
+     "02": 1749932,
+     "03": 1749938,
+     "04": 1749944,
+     "05": 1749950,
+     "06": 1749956,
+     "07": 1749962,
+     "08": 1749968,
+     "09": 1749974,
+     "10": 1749980,
+     "11": 1749986,
+     "12": 1749992
+    },
+    "F": {
+     "01": 1749927,
+     "02": 1749933,
+     "03": 1749939,
+     "04": 1749945,
+     "05": 1749951,
+     "06": 1749957,
+     "07": 1749963,
+     "08": 1749969,
+     "09": 1749975,
+     "10": 1749981,
+     "11": 1749987,
+     "12": 1749993
+    }
+   },
+   "unit": "PLN",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "total": {
+     "01": 10575.75,
+     "02": 12159.99,
+     "03": 12299.53,
+     "04": 11774.96,
+     "05": 10899.84,
+     "06": 10900.23,
+     "07": 11204.96,
+     "08": 10987.83,
+     "09": 10880.82,
+     "10": 11276.08,
+     "11": 11248.48,
+     "12": 12167.77
+    },
+    "M": {
+     "01": 11547.11,
+     "02": 12985.76,
+     "03": 13343.94,
+     "04": 12999.13,
+     "05": 11995.41,
+     "06": 11919.79,
+     "07": 12217.98,
+     "08": 11948.5,
+     "09": 11842.06,
+     "10": 12257.71,
+     "11": 12239.09,
+     "12": 13132.53
+    },
+    "F": {
+     "01": 9693.49,
+     "02": 11411.76,
+     "03": 11352.82,
+     "04": 10662.91,
+     "05": 9901.45,
+     "06": 9973.5,
+     "07": 10284.79,
+     "08": 10116.16,
+     "09": 10008.42,
+     "10": 10382.72,
+     "11": 10346.38,
+     "12": 11291.15
+    }
+   },
+   "note": "P4609 'Rozkład wynagrodzeń' (by place of residence); employees, monthly; average the months for an annual figure"
+  },
+  "median_gross_wage_by_residence_monthly": {
+   "var_id": {
+    "total": {
+     "01": 1750141,
+     "02": 1750147,
+     "03": 1750153,
+     "04": 1750159,
+     "05": 1750165,
+     "06": 1750171,
+     "07": 1750177,
+     "08": 1750183,
+     "09": 1750189,
+     "10": 1750195,
+     "11": 1750201,
+     "12": 1750207
+    },
+    "M": {
+     "01": 1750142,
+     "02": 1750148,
+     "03": 1750154,
+     "04": 1750160,
+     "05": 1750166,
+     "06": 1750172,
+     "07": 1750178,
+     "08": 1750184,
+     "09": 1750190,
+     "10": 1750196,
+     "11": 1750202,
+     "12": 1750208
+    },
+    "F": {
+     "01": 1750143,
+     "02": 1750149,
+     "03": 1750155,
+     "04": 1750161,
+     "05": 1750167,
+     "06": 1750173,
+     "07": 1750179,
+     "08": 1750185,
+     "09": 1750191,
+     "10": 1750197,
+     "11": 1750203,
+     "12": 1750209
+    }
+   },
+   "unit": "PLN",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "total": {
+     "01": 8197.52,
+     "02": 8654.05,
+     "03": 8670.16,
+     "04": 8738.48,
+     "05": 8476.0,
+     "06": 8583.16,
+     "07": 8733.51,
+     "08": 8673.0,
+     "09": 8530.13,
+     "10": 8864.0,
+     "11": 8866.71,
+     "12": 9558.52
+    },
+    "M": {
+     "01": 8606.46,
+     "02": 9000.0,
+     "03": 8784.8,
+     "04": 9070.0,
+     "05": 8831.63,
+     "06": 8890.0,
+     "07": 9099.27,
+     "08": 9044.7,
+     "09": 8954.57,
+     "10": 9187.23,
+     "11": 9226.01,
+     "12": 9905.84
+    },
+    "F": {
+     "01": 7907.36,
+     "02": 8354.97,
+     "03": 8529.11,
+     "04": 8484.0,
+     "05": 8186.14,
+     "06": 8340.3,
+     "07": 8483.2,
+     "08": 8388.72,
+     "09": 8280.0,
+     "10": 8611.53,
+     "11": 8600.0,
+     "12": 9316.0
+    }
+   },
+   "note": "P4610, as above, median"
+  },
+  "registered_unemployed_by_age_sex": {
+   "var_id": {
+    "total": {
+     "total": 34041,
+     "M": 34042,
+     "F": 34043
+    },
+    "<=24": {
+     "total": 8813,
+     "M": 33573,
+     "F": 8814
+    },
+    "25-34": {
+     "total": 8815,
+     "M": 33576,
+     "F": 8816
+    },
+    "35-44": {
+     "total": 8817,
+     "M": 33579,
+     "F": 8818
+    },
+    "45-54": {
+     "total": 8819,
+     "M": 33582,
+     "F": 8820
+    },
+    "55+": {
+     "total": 8821,
+     "M": 33585,
+     "F": 8822
+    }
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "total": {
+     "total": 13121,
+     "M": 7015,
+     "F": 6106
+    },
+    "<=24": {
+     "total": 968,
+     "M": 480,
+     "F": 488
+    },
+    "25-34": {
+     "total": 3017,
+     "M": 1389,
+     "F": 1628
+    },
+    "35-44": {
+     "total": 3570,
+     "M": 1716,
+     "F": 1854
+    },
+    "45-54": {
+     "total": 3216,
+     "M": 1753,
+     "F": 1463
+    },
+    "55+": {
+     "total": 2350,
+     "M": 1677,
+     "F": 673
+    }
+   },
+   "note": "P1946, stan 31 XII"
+  },
+  "registered_unemployed_by_education_sex": {
+   "var_id": {
+    "total": {
+     "total": 47058,
+     "M": 47066,
+     "F": 47052
+    },
+    "higher": {
+     "total": 47053,
+     "M": 47067,
+     "F": 47057
+    },
+    "postsec_secondary_vocational": {
+     "total": 47062,
+     "M": 47047,
+     "F": 47048
+    },
+    "secondary_general": {
+     "total": 47060,
+     "M": 47055,
+     "F": 47051
+    },
+    "basic_vocational": {
+     "total": 47063,
+     "M": 47050,
+     "F": 47054
+    },
+    "lower_secondary_primary_or_less": {
+     "total": 47049,
+     "M": 47059,
+     "F": 47064
+    }
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "total": {
+     "total": 13121,
+     "M": 7015,
+     "F": 6106
+    },
+    "higher": {
+     "total": 4198,
+     "M": 1746,
+     "F": 2452
+    },
+    "postsec_secondary_vocational": {
+     "total": 2348,
+     "M": 1261,
+     "F": 1087
+    },
+    "secondary_general": {
+     "total": 1740,
+     "M": 845,
+     "F": 895
+    },
+    "basic_vocational": {
+     "total": 1550,
+     "M": 1119,
+     "F": 431
+    },
+    "lower_secondary_primary_or_less": {
+     "total": 3285,
+     "M": 2044,
+     "F": 1241
+    }
+   },
+   "note": "P1947, stan 31 XII"
+  },
+  "economic_activity_15plus_by_sex": {
+   "var_id": {
+    "total": {
+     "population_15plus": 1655473,
+     "active": 1655474,
+     "employed": 1655475,
+     "unemployed": 1655476,
+     "inactive": 1655477,
+     "status_unknown": 1655478,
+     "activity_rate_pct": 1655479,
+     "employment_rate_pct": 1655480,
+     "unemployment_rate_pct": 1655481
+    },
+    "M": {
+     "population_15plus": 1655482,
+     "active": 1655483,
+     "employed": 1655484,
+     "unemployed": 1655485,
+     "inactive": 1655486,
+     "status_unknown": 1655487,
+     "activity_rate_pct": 1655488,
+     "employment_rate_pct": 1655489,
+     "unemployment_rate_pct": 1655490
+    },
+    "F": {
+     "population_15plus": 1655491,
+     "active": 1655492,
+     "employed": 1655493,
+     "unemployed": 1655494,
+     "inactive": 1655495,
+     "status_unknown": 1655496,
+     "activity_rate_pct": 1655497,
+     "employment_rate_pct": 1655498,
+     "unemployment_rate_pct": 1655499
+    }
+   },
+   "unit": "persons / %",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": {
+     "population_15plus": 680267,
+     "active": 419245,
+     "employed": 405902,
+     "unemployed": 13343,
+     "inactive": 228063,
+     "status_unknown": 32959,
+     "activity_rate_pct": 64.8,
+     "employment_rate_pct": 62.7,
+     "unemployment_rate_pct": 3.2
+    },
+    "M": {
+     "population_15plus": 314496,
+     "active": 210708,
+     "employed": 203432,
+     "unemployed": 7276,
+     "inactive": 86943,
+     "status_unknown": 16845,
+     "activity_rate_pct": 70.8,
+     "employment_rate_pct": 68.3,
+     "unemployment_rate_pct": 3.5
+    },
+    "F": {
+     "population_15plus": 365771,
+     "active": 208537,
+     "employed": 202470,
+     "unemployed": 6067,
+     "inactive": 141120,
+     "status_unknown": 16114,
+     "activity_rate_pct": 59.6,
+     "employment_rate_pct": 57.9,
+     "unemployment_rate_pct": 2.9
+    }
+   },
+   "note": "NSP 2021, P4305, resident; LFS-style definitions"
+  },
+  "employed_by_age_sex": {
+   "var_id": {
+    "total": {
+     "total": 1725076,
+     "15-24": 1725077,
+     "25-34": 1725078,
+     "35-44": 1725079,
+     "45-54": 1725080,
+     "55-64": 1725081,
+     "65+": 1725082
+    },
+    "M": {
+     "total": 1725083,
+     "15-24": 1725084,
+     "25-34": 1725085,
+     "35-44": 1725086,
+     "45-54": 1725087,
+     "55-64": 1725088,
+     "65+": 1725089
+    },
+    "F": {
+     "total": 1725090,
+     "15-24": 1725091,
+     "25-34": 1725092,
+     "35-44": 1725093,
+     "45-54": 1725094,
+     "55-64": 1725095,
+     "65+": 1725096
+    }
+   },
+   "unit": "persons",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "total": {
+     "total": 405902,
+     "15-24": 25463,
+     "25-34": 127194,
+     "35-44": 112180,
+     "45-54": 72210,
+     "55-64": 49701,
+     "65+": 19154
+    },
+    "M": {
+     "total": 203432,
+     "15-24": 12512,
+     "25-34": 63113,
+     "35-44": 56971,
+     "45-54": 35130,
+     "55-64": 25283,
+     "65+": 10423
+    },
+    "F": {
+     "total": 202470,
+     "15-24": 12951,
+     "25-34": 64081,
+     "35-44": 55209,
+     "45-54": 37080,
+     "55-64": 24418,
+     "65+": 8731
+    }
+   },
+   "note": "NSP 2021, P4409, resident"
+  },
+  "employed_by_occupation_group": {
+   "var_id": {
+    "total": 1735319,
+    "managers": 1735320,
+    "professionals": 1735321,
+    "technicians": 1735322,
+    "clerical": 1735323,
+    "service_sales": 1735324,
+    "agriculture": 1735325,
+    "craft_trades": 1735326,
+    "operators": 1735327,
+    "elementary": 1735328
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2021",
+   "value": {
+    "total": 405902,
+    "managers": 34754,
+    "professionals": 147259,
+    "technicians": 70618,
+    "clerical": 30325,
+    "service_sales": 50560,
+    "agriculture": 3335,
+    "craft_trades": 31729,
+    "operators": 18139,
+    "elementary": 14865
+   },
+   "note": "NSP 2021, P4504, resident, ISCO major groups"
+  },
+  "employed_by_pkd_section": {
+   "var_id": {
+    "total": 1735265,
+    "A_agriculture": 1735266,
+    "BCDE_industry": 1735267,
+    "B_mining": 1735268,
+    "C_manufacturing": 1735269,
+    "D_energy": 1735270,
+    "E_water_waste": 1735271,
+    "F_construction": 1735272,
+    "G_trade": 1735273,
+    "H_transport": 1735274,
+    "I_accommodation_food": 1735275,
+    "J_ict": 1735276,
+    "K_finance": 1735277,
+    "L_real_estate": 1735278,
+    "M_professional": 1735279,
+    "N_admin_support": 1735280,
+    "O_public_admin": 1735281,
+    "P_education": 1735282,
+    "Q_health_social": 1735283,
+    "R_culture_recreation": 1735284,
+    "S_other_services": 1735285,
+    "T_households": 1735286
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2021",
+   "value": {
+    "total": 405902,
+    "A_agriculture": 4125,
+    "BCDE_industry": 48886,
+    "B_mining": 1014,
+    "C_manufacturing": 41871,
+    "D_energy": 3770,
+    "E_water_waste": 2231,
+    "F_construction": 24373,
+    "G_trade": 56670,
+    "H_transport": 19483,
+    "I_accommodation_food": 14583,
+    "J_ict": 39899,
+    "K_finance": 21639,
+    "L_real_estate": 6714,
+    "M_professional": 42330,
+    "N_admin_support": 19021,
+    "O_public_admin": 19636,
+    "P_education": 36390,
+    "Q_health_social": 29872,
+    "R_culture_recreation": 8733,
+    "S_other_services": 10888,
+    "T_households": 358
+   },
+   "note": "NSP 2021, P4502, resident, by place of residence"
+  }
+ },
+ "culture": {
+  "cinemas": {
+   "var_id": {
+    "cinemas": 148551,
+    "screens": 148553,
+    "seats": 148555,
+    "shows": 148557,
+    "shows_polish_films": 148559,
+    "viewers": 148561,
+    "viewers_polish_films": 148563
+   },
+   "unit": "objects / seats / shows / viewers",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "cinemas": 11,
+    "screens": 73,
+    "seats": 12083,
+    "shows": 121551,
+    "shows_polish_films": 24527,
+    "viewers": 3039820,
+    "viewers_polish_films": 640003
+   },
+   "note": "P1687, fixed cinemas"
+  },
+  "museums": {
+   "var_id": {
+    "museums_incl_branches": 1241,
+    "visitors": 1243
+   },
+   "unit": "objects / visitors",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "museums_incl_branches": 45,
+    "visitors": 7445600
+   },
+   "note": "P1679; visitors include tourists"
+  },
+  "theatres": {
+   "var_id": {
+    "units": {
+     "drama": 194952,
+     "musical_entertainment_old": 194949,
+     "opera_old": 194946,
+     "puppet": 194943,
+     "operetta_ballet_dance_other": 1747502,
+     "opera": 1747503
+    },
+    "performances": {
+     "drama": 194953,
+     "musical_entertainment_old": 194950,
+     "opera_old": 194947,
+     "puppet": 194944,
+     "operetta_ballet_dance_other": 1747504,
+     "opera": 1747505
+    },
+    "viewers": {
+     "drama": 194954,
+     "musical_entertainment_old": 194951,
+     "opera_old": 194948,
+     "puppet": 194945,
+     "operetta_ballet_dance_other": 1747506,
+     "opera": 1747507
+    }
+   },
+   "unit": "units / performances / viewers",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "units": {
+     "drama": 9,
+     "musical_entertainment_old": null,
+     "opera_old": null,
+     "puppet": 1,
+     "operetta_ballet_dance_other": 1,
+     "opera": 1
+    },
+    "performances": {
+     "drama": 3550,
+     "musical_entertainment_old": null,
+     "opera_old": null,
+     "puppet": 400,
+     "operetta_ballet_dance_other": 155,
+     "opera": 143
+    },
+    "viewers": {
+     "drama": 513897,
+     "musical_entertainment_old": null,
+     "opera_old": null,
+     "puppet": 80847,
+     "operetta_ballet_dance_other": 49609,
+     "opera": 82707
+    }
+   },
+   "note": "P2874, fixed halls; '_old' categories are pre-2023 classification, replaced by the last two"
+  },
+  "music_institutions": {
+   "var_id": {
+    "units": {
+     "choir": 194928,
+     "philharmonic": 194925,
+     "orchestra_symph_chamber": 194922,
+     "orchestra": 1747499
+    },
+    "concerts": {
+     "choir": 194929,
+     "philharmonic": 194926,
+     "orchestra_symph_chamber": 194923,
+     "orchestra": 1747500
+    },
+    "listeners": {
+     "choir": 194930,
+     "philharmonic": 194927,
+     "orchestra_symph_chamber": 194924,
+     "orchestra": 1747501
+    }
+   },
+   "unit": "units / concerts / listeners",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "units": {
+     "choir": 0,
+     "philharmonic": 1,
+     "orchestra_symph_chamber": null,
+     "orchestra": 2
+    },
+    "concerts": {
+     "choir": 0,
+     "philharmonic": 2172,
+     "orchestra_symph_chamber": null,
+     "orchestra": 4
+    },
+    "listeners": {
+     "choir": 0,
+     "philharmonic": 105953,
+     "orchestra_symph_chamber": null,
+     "orchestra": 200
+    }
+   },
+   "note": "P2875, fixed halls; 'orchestra' = new classification"
+  },
+  "culture_centres": {
+   "var_id": {
+    "centres": 377288,
+    "events": 58505,
+    "event_participants": 58506,
+    "participants_per_1000": 410643,
+    "art_groups": 58511,
+    "art_group_members": 58507,
+    "clubs_sections": 58509,
+    "club_members": 58510
+   },
+   "unit": "objects / events / persons",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "centres": 53,
+    "events": 9379,
+    "event_participants": 838051,
+    "participants_per_1000": 1033.9,
+    "art_groups": 118,
+    "art_group_members": 1657,
+    "clubs_sections": 876,
+    "club_members": 14473
+   },
+   "note": "P2284, centra/domy/ośrodki kultury, kluby, świetlice"
+  },
+  "culture_centres_events_by_type": {
+   "var_id": {
+    "events": {
+     "total": 377328,
+     "film_shows": 149720,
+     "exhibitions": 149722,
+     "festivals": 475971,
+     "concerts": 475973,
+     "amateur_shows": 149724,
+     "professional_shows": 149726,
+     "discos": 149728,
+     "talks_lectures": 149730,
+     "tourist_sport_recreation": 149732,
+     "contests": 151875,
+     "theatre_shows": 475975,
+     "conferences": 475977,
+     "interdisciplinary": 475979,
+     "workshops": 475981,
+     "other": 377332
+    },
+    "participants": {
+     "total": 377329,
+     "film_shows": 149719,
+     "exhibitions": 149721,
+     "festivals": 475970,
+     "concerts": 475972,
+     "amateur_shows": 149723,
+     "professional_shows": 149725,
+     "discos": 149727,
+     "talks_lectures": 149729,
+     "tourist_sport_recreation": 149731,
+     "contests": 151874,
+     "theatre_shows": 475974,
+     "conferences": 475976,
+     "interdisciplinary": 475978,
+     "workshops": 475980,
+     "other": 377333
+    }
+   },
+   "unit": "events / participants",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "events": {
+     "total": 9379,
+     "film_shows": 121,
+     "exhibitions": 304,
+     "festivals": 131,
+     "concerts": 712,
+     "amateur_shows": null,
+     "professional_shows": null,
+     "discos": null,
+     "talks_lectures": 987,
+     "tourist_sport_recreation": 425,
+     "contests": 89,
+     "theatre_shows": 372,
+     "conferences": 12,
+     "interdisciplinary": 195,
+     "workshops": 5515,
+     "other": 516
+    },
+    "participants": {
+     "total": 838051,
+     "film_shows": 8162,
+     "exhibitions": 127077,
+     "festivals": 63132,
+     "concerts": 172276,
+     "amateur_shows": null,
+     "professional_shows": null,
+     "discos": null,
+     "talks_lectures": 34266,
+     "tourist_sport_recreation": 77676,
+     "contests": 12031,
+     "theatre_shows": 83497,
+     "conferences": 2073,
+     "interdisciplinary": 68610,
+     "workshops": 80584,
+     "other": 108667
+    }
+   },
+   "note": "P2795"
+  },
+  "mass_events_count": {
+   "var_id": {
+    "total": 410716,
+    "artistic_entertainment": 567345,
+    "concerts": 410713,
+    "performances": 410710,
+    "film_shows": 410707,
+    "festivals": 410704,
+    "cabarets": 410701,
+    "circus": 410698,
+    "historical_reenactments": 567346,
+    "combined": 410695,
+    "other_artistic": 410692,
+    "interdisciplinary": 410689,
+    "sport": 410686,
+    "indoor_total": 410717,
+    "outdoor_total": 410718
+   },
+   "unit": "events",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "total": 213,
+    "artistic_entertainment": 107,
+    "concerts": 81,
+    "performances": 11,
+    "film_shows": 0,
+    "festivals": 10,
+    "cabarets": 4,
+    "circus": 0,
+    "historical_reenactments": 1,
+    "combined": 0,
+    "other_artistic": 0,
+    "interdisciplinary": null,
+    "sport": 106,
+    "indoor_total": 175,
+    "outdoor_total": 38
+   },
+   "note": "P3402, imprezy masowe (Ustawa o bezpieczeństwie imprez masowych)"
+  },
+  "mass_events_participants": {
+   "var_id": {
+    "total": 410728,
+    "artistic_entertainment": 410725,
+    "interdisciplinary": 410722,
+    "sport": 410719,
+    "sport_per_1000_pop": 1725016,
+    "free_total": 410729,
+    "free_artistic": 410726,
+    "free_interdisciplinary": 410723,
+    "free_sport": 410720,
+    "paid_total": 410730,
+    "paid_artistic": 410727,
+    "paid_interdisciplinary": 410724,
+    "paid_sport": 410721
+   },
+   "unit": "persons",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "total": 1748335,
+    "artistic_entertainment": 825512,
+    "interdisciplinary": null,
+    "sport": 922823,
+    "sport_per_1000_pop": 1138.5,
+    "free_total": 64920,
+    "free_artistic": 61300,
+    "free_interdisciplinary": null,
+    "free_sport": 3620,
+    "paid_total": 1683415,
+    "paid_artistic": 764212,
+    "paid_interdisciplinary": null,
+    "paid_sport": 919203
+   },
+   "note": "P3403"
+  },
+  "public_libraries": {
+   "var_id": {
+    "libraries_incl_branches": 1230,
+    "readers": 1234,
+    "loans": 1235,
+    "readers_per_1000": 60191
+   },
+   "unit": "objects / persons / volumes",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "libraries_incl_branches": 63,
+    "readers": 264250,
+    "loans": 3282237,
+    "readers_per_1000": 326
+   },
+   "note": "P1688, P2381"
+  },
+  "public_culture_institutions_events": {
+   "var_id": {
+    "participants_public_total": 1725694,
+    "events_public_total": 1725697
+   },
+   "unit": "events / persons",
+   "level": "gmina 011212161011",
+   "year": "2024",
+   "value": {
+    "participants_public_total": 2720872,
+    "events_public_total": 21205
+   },
+   "note": "P4344; ASSUMPTION: first id of each triple = 'sektor publiczny ogółem' (label truncated in API listing)"
+  },
+  "art_groups": {
+   "var_id": {
+    "groups": 271278,
+    "members": 271279,
+    "members_children_youth": 568135
+   },
+   "unit": "groups / persons",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "groups": 118,
+    "members": 1657,
+    "members_children_youth": 927
+   },
+   "note": "P2792"
+  },
+  "seniors_in_clubs_utw_share_60plus": {
+   "var_id": 1609859,
+   "unit": "%",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": 1.0,
+   "note": "P3904; members of senior clubs & Universities of Third Age / pop 60+"
+  }
+ },
+ "sport": {
+  "sports_clubs": {
+   "var_id": {
+    "clubs": 1618742,
+    "members": 1618743,
+    "exercising_total": 1618744,
+    "exercising_M": 1618745,
+    "exercising_F": 1618746,
+    "exercising_u18_total": 1618747,
+    "exercising_u18_boys": 1618748,
+    "exercising_u18_girls": 1618749,
+    "sections": 1618750,
+    "coaches": 1618751,
+    "instructors": 1618752,
+    "other_staff": 1618753,
+    "clubs_per_10k": 1618754,
+    "exercising_per_1000": 1640935,
+    "u18_exercising_per_1000_u18": 1640936
+   },
+   "unit": "clubs / persons",
+   "level": "gmina 011212161011",
+   "year": "2024",
+   "value": {
+    "clubs": 244,
+    "members": 37926,
+    "exercising_total": 39678,
+    "exercising_M": 26791,
+    "exercising_F": 12887,
+    "exercising_u18_total": 27040,
+    "exercising_u18_boys": 17569,
+    "exercising_u18_girls": 9471,
+    "sections": 519,
+    "coaches": 998,
+    "instructors": 713,
+    "other_staff": 226,
+    "clubs_per_10k": 3.0,
+    "exercising_per_1000": 49.0,
+    "u18_exercising_per_1000_u18": 194
+   },
+   "note": "P4028 (estimated w/ imputation), biennial; 'ćwiczący' counts memberships in sections (a person in 2 sections counts twice)"
+  },
+  "sports_facilities": {
+   "var_id": {
+    "stadiums": 1601422,
+    "football_pitches": 1601437,
+    "basketball_courts": 1601438,
+    "handball_courts": 1601439,
+    "volleyball_courts": 1601440,
+    "multipurpose_pitches": 1601441,
+    "sports_halls_36x19": 1601448,
+    "small_gyms_halls": 1601461,
+    "tennis_courts": 1601474,
+    "indoor_pools": 1601487,
+    "shooting_ranges": 1601509,
+    "ice_rinks": 1601510,
+    "ski_jumps": 1601511,
+    "skateparks": 1601512,
+    "outdoor_gyms": 1601604
+   },
+   "unit": "objects",
+   "level": "gmina 011212161011",
+   "year": "2022",
+   "value": {
+    "stadiums": 16,
+    "football_pitches": 83,
+    "basketball_courts": 8,
+    "handball_courts": 1,
+    "volleyball_courts": 5,
+    "multipurpose_pitches": 16,
+    "sports_halls_36x19": 27,
+    "small_gyms_halls": 38,
+    "tennis_courts": 73,
+    "indoor_pools": 17,
+    "shooting_ranges": 5,
+    "ice_rinks": 2,
+    "ski_jumps": 0,
+    "skateparks": 0,
+    "outdoor_gyms": 1
+   },
+   "note": "P3881, biennial"
+  }
+ },
+ "transport": {
+  "cars_by_fuel": {
+   "var_id": {
+    "total": 1752922,
+    "petrol": 475618,
+    "diesel": 475614,
+    "lpg": 475610,
+    "other_incl_electric_hybrid": 475622
+   },
+   "unit": "vehicles",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "total": 521108,
+    "petrol": 255544,
+    "diesel": 126638,
+    "lpg": 55179,
+    "other_incl_electric_hybrid": 83747
+   },
+   "note": "P3583, registered passenger cars"
+  },
+  "cars_by_age": {
+   "var_id": {
+    "total": 475696,
+    "<=1": 475690,
+    "2": 475684,
+    "3": 475678,
+    "4-5": 475672,
+    "6-7": 475666,
+    "8-9": 475660,
+    "10-11": 475654,
+    "12-15": 475648,
+    "16-20": 475642,
+    "21-25": 475636,
+    "26-30": 475630,
+    "31+": 475624
+   },
+   "unit": "vehicles",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "total": 521108,
+    "<=1": 54772,
+    "2": 27374,
+    "3": 21829,
+    "4-5": 37136,
+    "6-7": 45220,
+    "8-9": 41792,
+    "10-11": 33549,
+    "12-15": 63881,
+    "16-20": 85613,
+    "21-25": 52595,
+    "26-30": 31893,
+    "31+": 25454
+   },
+   "note": "P3584, registered passenger cars"
+  },
+  "cycle_paths": {
+   "var_id": {
+    "total_km": 288080,
+    "per_100km2": 1365541,
+    "per_10k_pop": 288082
+   },
+   "unit": "km",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "total_km": 375.8,
+    "per_100km2": 114.98,
+    "per_10k_pop": 4.6
+   },
+   "note": "P3164"
+  },
+  "public_bikes": {
+   "var_id": {
+    "systems": 1646070,
+    "stations": 1646071,
+    "bikes_total": 1646072,
+    "bikes_regular": 1646073,
+    "bikes_electric": 1646074,
+    "tandems": 1646075,
+    "kids": 1646076,
+    "family": 1646077,
+    "cargo": 1646078,
+    "bikes_disabled": 1746955,
+    "rentals": 1646079,
+    "bikes_per_1000": 1646080,
+    "rentals_per_1000": 1646081
+   },
+   "unit": "units",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "systems": 2,
+    "stations": 7,
+    "bikes_total": 1142,
+    "bikes_regular": 500,
+    "bikes_electric": 642,
+    "tandems": 0,
+    "kids": 0,
+    "family": 0,
+    "cargo": 0,
+    "bikes_disabled": 0,
+    "rentals": 22843,
+    "bikes_per_1000": 1.4,
+    "rentals_per_1000": 28.18
+   },
+   "note": "P4262"
+  },
+  "urban_transport_passengers_malopolskie": {
+   "var_id": {
+    "passengers_thousand": 1726304,
+    "passengers_million": 498861,
+    "trips_per_capita": 634994
+   },
+   "unit": "mixed",
+   "level": "region 011210000000",
+   "year": "2025",
+   "value": {
+    "passengers_thousand": 388056,
+    "passengers_million": 388.1,
+    "trips_per_capita": 113.21
+   },
+   "note": "P3603; region level (all urban transport in voivodeship, Kraków MPK dominates)"
+  },
+  "urban_transport_fleet_use_malopolskie": {
+   "var_id": {
+    "bus_in_service_pct": 400355,
+    "tram_in_service_pct": 400350,
+    "bus_vehicle_km_thousand": 400356,
+    "tram_vehicle_km_thousand": 400351,
+    "bus_km_per_day": 400358,
+    "tram_km_per_day": 400353
+   },
+   "unit": "mixed",
+   "level": "region 011210000000",
+   "year": "2025",
+   "value": {
+    "bus_in_service_pct": 76,
+    "tram_in_service_pct": 60,
+    "bus_vehicle_km_thousand": 60770,
+    "tram_vehicle_km_thousand": 17299,
+    "bus_km_per_day": 211,
+    "tram_km_per_day": 219
+   },
+   "note": "P3365; region level"
+  }
+ },
+ "migration": {
+  "permanent_migration_by_sex": {
+   "var_id": {
+    "in_total": {
+     "total": 1365224,
+     "M": 1365225,
+     "F": 1365226
+    },
+    "in_internal": {
+     "total": 80121,
+     "M": 80115,
+     "F": 80109
+    },
+    "in_from_abroad": {
+     "total": 80122,
+     "M": 80116,
+     "F": 80110
+    },
+    "out_total": {
+     "total": 1365229,
+     "M": 1365230,
+     "F": 1365231
+    },
+    "out_internal": {
+     "total": 80123,
+     "M": 80117,
+     "F": 80111
+    },
+    "out_abroad": {
+     "total": 80124,
+     "M": 80118,
+     "F": 80112
+    },
+    "net_total": {
+     "total": 1365234,
+     "M": 1365235,
+     "F": 1365236
+    },
+    "net_internal": {
+     "total": 80125,
+     "M": 80119,
+     "F": 80113
+    },
+    "net_foreign": {
+     "total": 80108,
+     "M": 80120,
+     "F": 80114
+    },
+    "net_per_1000": {
+     "total": 1365239
+    },
+    "net_internal_per_1000": {
+     "total": 498816
+    },
+    "net_foreign_per_1000": {
+     "total": 745534
+    }
+   },
+   "unit": "persons",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "in_total": {
+     "total": 12514,
+     "M": 6498,
+     "F": 6016
+    },
+    "in_internal": {
+     "total": 11053,
+     "M": 5774,
+     "F": 5279
+    },
+    "in_from_abroad": {
+     "total": 1461,
+     "M": 724,
+     "F": 737
+    },
+    "out_total": {
+     "total": 6690,
+     "M": 3216,
+     "F": 3474
+    },
+    "out_internal": {
+     "total": 6519,
+     "M": 3113,
+     "F": 3406
+    },
+    "out_abroad": {
+     "total": 171,
+     "M": 103,
+     "F": 68
+    },
+    "net_total": {
+     "total": 5824,
+     "M": 3282,
+     "F": 2542
+    },
+    "net_internal": {
+     "total": 4534,
+     "M": 2661,
+     "F": 1873
+    },
+    "net_foreign": {
+     "total": 1290,
+     "M": 621,
+     "F": 669
+    },
+    "net_per_1000": {
+     "total": 7.18
+    },
+    "net_internal_per_1000": {
+     "total": 5.6
+    },
+    "net_foreign_per_1000": {
+     "total": 1.59
+    }
+   },
+   "note": "P1350; zameldowania na pobyt stały only (students/temporary residents not included)"
+  },
+  "interpowiat_foreign_migration_by_econ_age": {
+   "var_id": {
+    "in_from_other_powiats": {
+     "pre_working": 396240,
+     "working": 396235,
+     "post_working": 396230
+    },
+    "out_to_other_powiats": {
+     "pre_working": 396241,
+     "working": 396236,
+     "post_working": 396231
+    },
+    "in_from_abroad": {
+     "pre_working": 396242,
+     "working": 396237,
+     "post_working": 396232
+    },
+    "out_abroad": {
+     "pre_working": 396243,
+     "working": 396238,
+     "post_working": 396233
+    },
+    "net": {
+     "pre_working": 396244,
+     "working": 396239,
+     "post_working": 396234
+    }
+   },
+   "unit": "persons",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "in_from_other_powiats": {
+     "pre_working": 808,
+     "working": 9697,
+     "post_working": 548
+    },
+    "out_to_other_powiats": {
+     "pre_working": 1727,
+     "working": 4190,
+     "post_working": 602
+    },
+    "in_from_abroad": {
+     "pre_working": 259,
+     "working": 1147,
+     "post_working": 55
+    },
+    "out_abroad": {
+     "pre_working": 23,
+     "working": 140,
+     "post_working": 8
+    },
+    "net": {
+     "pre_working": -683,
+     "working": 6514,
+     "post_working": -7
+    }
+   },
+   "note": "P3313"
+  }
+ },
+ "housing": {
+  "dwelling_stock_indicators": {
+   "var_id": {
+    "avg_floor_area_m2": 60572,
+    "floor_area_per_person_m2": 60573,
+    "dwellings_per_1000": 410600,
+    "avg_rooms": 475702,
+    "persons_per_dwelling": 475703,
+    "persons_per_room": 475704
+   },
+   "unit": "m2 / ratio",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "avg_floor_area_m2": 57.9,
+    "floor_area_per_person_m2": 33.7,
+    "dwellings_per_1000": 581.0,
+    "avg_rooms": 3.07,
+    "persons_per_dwelling": 1.72,
+    "persons_per_room": 0.56
+   },
+   "note": "P2430, stan 31 XII"
+  },
+  "dwelling_stock": {
+   "var_id": {
+    "dwellings": 60811,
+    "rooms": 60808,
+    "floor_area_m2": 60813
+   },
+   "unit": "dwellings / rooms / m2",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "dwellings": 474482,
+    "rooms": 1455706,
+    "floor_area_m2": 27481121
+   },
+   "note": "P2166"
+  },
+  "new_dwellings_completed": {
+   "var_id": {
+    "dwellings": 748601,
+    "rooms": 748602,
+    "floor_area_m2": 748603,
+    "individual": 748604,
+    "for_sale_or_rent": 748610,
+    "cooperative": 748607,
+    "municipal": 748616,
+    "social_rent": 748619
+   },
+   "unit": "dwellings / m2",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "dwellings": 7946,
+    "rooms": 22625,
+    "floor_area_m2": 506335,
+    "individual": 443,
+    "for_sale_or_rent": 7503,
+    "cooperative": 0,
+    "municipal": 0,
+    "social_rent": 0
+   },
+   "note": "P3824"
+  },
+  "occupied_dwellings_by_m2_per_person": {
+   "var_id": {
+    "dwellings": {
+     "total": 1723504,
+     "<7": 1723505,
+     "7-9.9": 1723506,
+     "10-14.9": 1723507,
+     "15-19.9": 1723508,
+     "20-29.9": 1723509,
+     "30+": 1723510
+    },
+    "persons": {
+     "total": 1723511,
+     "<7": 1723512,
+     "7-9.9": 1723513,
+     "10-14.9": 1723514,
+     "15-19.9": 1723515,
+     "20-29.9": 1723516,
+     "30+": 1723517
+    }
+   },
+   "unit": "dwellings / persons",
+   "level": "gmina 011212161011",
+   "year": "2021",
+   "value": {
+    "dwellings": {
+     "total": 369693,
+     "<7": 52724,
+     "7-9.9": 12631,
+     "10-14.9": 42396,
+     "15-19.9": 53026,
+     "20-29.9": 75209,
+     "30+": 133707
+    },
+    "persons": {
+     "total": 778210,
+     "<7": 27253,
+     "7-9.9": 61811,
+     "10-14.9": 162953,
+     "15-19.9": 155885,
+     "20-29.9": 174455,
+     "30+": 195853
+    }
+   },
+   "note": "NSP 2021, P4385"
+  }
+ },
+ "other": {
+  "city_budget_revenue_per_capita": {
+   "var_id": {
+    "total_gminy_incl_cities": 76973,
+    "own_revenue_gminy_incl_cities": 76976,
+    "pit_share_gminy_incl_cities": 149128,
+    "total_city_powiat": 76974,
+    "pit_share_city_powiat": 149129
+   },
+   "unit": "PLN",
+   "level": "gmina 011212161011",
+   "year": "2025",
+   "value": {
+    "total_gminy_incl_cities": 11932.13,
+    "own_revenue_gminy_incl_cities": 10574.77,
+    "pit_share_gminy_incl_cities": 6147.94,
+    "total_city_powiat": 11932.13,
+    "pit_share_city_powiat": 6147.94
+   },
+   "note": "P2627; PIT share per capita is a proxy for resident income; Kraków's 'city with powiat rights' variant may only be filled for the gmina part"
+  },
+  "tourist_accommodation": {
+   "var_id": {
+    "establishments_july": 40914,
+    "establishments_yearround": 40920,
+    "beds_july": 40936,
+    "beds_yearround": 40944,
+    "tourists": 40909,
+    "tourists_foreign": 40928,
+    "rooms_rented_hotels": 152455,
+    "rooms_rented_hotels_foreign": 152490,
+    "nights": 40921,
+    "nights_foreign": 40905,
+    "hotel_type_beds_july": 475886,
+    "hotel_type_tourists": 475888
+   },
+   "unit": "objects / beds / persons / nights",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "establishments_july": 324,
+    "establishments_yearround": 314,
+    "beds_july": 37170,
+    "beds_yearround": 36160,
+    "tourists": 3251284,
+    "tourists_foreign": 1635953,
+    "rooms_rented_hotels": null,
+    "rooms_rented_hotels_foreign": null,
+    "nights": 7166777,
+    "nights_foreign": 3979877,
+    "hotel_type_beds_july": 29856,
+    "hotel_type_tourists": 2856135
+   },
+   "note": "P2017, establishments with 10+ beds; powiat level because the gmina series stops in 2014"
+  },
+  "tourism_indicators": {
+   "var_id": {
+    "beds_per_1000": 60300,
+    "nights_per_1000": 60298,
+    "tourists_per_1000": 60297
+   },
+   "unit": "per 1000 pop",
+   "level": "powiat 011212161000",
+   "year": "2025",
+   "value": {
+    "beds_per_1000": 45.86,
+    "nights_per_1000": 8841.43,
+    "tourists_per_1000": 4011.01
+   },
+   "note": "P2396"
+  }
+ }
+}
