@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kraków Sim</title>
+<style>
+:root{color-scheme:light;--bg:#f4f3f0;--surface-1:#fcfcfb;--surface-2:#f0efeb;--border:#e3e2dd;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#77766f;--grid:#ebeae6;
+--s100:#cde2fb;--s200:#9ec5f4;--s300:#6da7ec;--s400:#3987e5;--s500:#256abf;--s600:#184f95;--s700:#0d366b;--bar:#2a78d6;--accent:#2a78d6;--venue:#e34948;--line:rgba(11,11,11,.35);--me:#2a78d6;--me-text:#fff;--warn:#b25e09}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){color-scheme:dark;--bg:#111110;--surface-1:#1a1a19;--surface-2:#222220;--border:#2e2e2b;--text-primary:#fff;--text-secondary:#c3c2b7;--text-muted:#929189;--grid:#2a2a27;
+--s100:#0d366b;--s200:#104281;--s300:#184f95;--s400:#1c5cab;--s500:#2a78d6;--s600:#5598e7;--s700:#9ec5f4;--bar:#3987e5;--accent:#5598e7;--venue:#e66767;--line:rgba(255,255,255,.3);--me:#2a78d6;--me-text:#fff;--warn:#f0a35b}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#111110;--surface-1:#1a1a19;--surface-2:#222220;--border:#2e2e2b;--text-primary:#fff;--text-secondary:#c3c2b7;--text-muted:#929189;--grid:#2a2a27;
+--s100:#0d366b;--s200:#104281;--s300:#184f95;--s400:#1c5cab;--s500:#2a78d6;--s600:#5598e7;--s700:#9ec5f4;--bar:#3987e5;--accent:#5598e7;--venue:#e66767;--line:rgba(255,255,255,.3);--me:#2a78d6;--me-text:#fff;--warn:#f0a35b}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text-primary);font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1320px;margin:0 auto;padding:20px 16px 32px}
+h1{font-size:20px;margin:0 0 2px}.sub{color:var(--text-secondary);margin:0 0 16px}
+.layout{display:grid;grid-template-columns:minmax(0,410px) minmax(0,1fr);gap:14px;align-items:start}@media(max-width:900px){.layout{grid-template-columns:1fr}}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:14px 16px;min-width:0}
+.card h2{font-size:14px;margin:0 0 2px}.cap{font-size:12px;color:var(--text-muted);margin:0 0 10px}
+/* chat */
+.chat{display:flex;flex-direction:column;height:calc(100vh - 120px);min-height:540px;position:sticky;top:12px;padding:0}@media(max-width:900px){.chat{position:static;height:auto;min-height:0}.msgs{max-height:60vh}}
+.msgs{flex:1;overflow-y:auto;padding:14px 16px;display:flex;flex-direction:column;gap:10px}
+.msg{max-width:90%;padding:9px 12px;border-radius:12px;white-space:pre-wrap;word-wrap:break-word}
+.bot{background:var(--surface-2);align-self:flex-start;border-bottom-left-radius:4px}.me{background:var(--me);color:var(--me-text);align-self:flex-end;border-bottom-right-radius:4px}
+.bot ul{margin:4px 0 0;padding-left:18px;white-space:normal}.bot li{margin:3px 0}
+.typing{color:var(--text-muted)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;align-self:flex-start;max-width:100%}
+.chip{font:inherit;font-size:13px;border:1px solid var(--border);background:var(--surface-1);color:var(--text-primary);border-radius:999px;padding:5px 11px;cursor:pointer;text-align:left}
+.chip:hover{border-color:var(--accent)}.chip.primary{background:var(--accent);color:#fff;border-color:var(--accent)}.chip.ghost{color:var(--text-secondary)}
+.pricebox{display:flex;gap:6px;align-self:flex-start}.pricebox input{font:inherit;width:110px;padding:5px 9px;border:1px solid var(--border);border-radius:8px;background:var(--surface-1);color:var(--text-primary)}
+.prog{align-self:stretch;height:8px;background:var(--surface-2);border-radius:999px;overflow:hidden;flex:none}.prog>div{height:100%;width:0;background:var(--accent);transition:width .3s}
+.pills{display:flex;flex-wrap:wrap;gap:5px;padding:8px 12px 0}.pill{font:inherit;font-size:12px;border:1px solid var(--border);background:var(--surface-2);color:var(--text-primary);border-radius:8px;padding:3px 8px;cursor:pointer}
+.pill b{font-weight:600}.pill.miss{border-style:dashed;color:var(--text-muted)}.pill:hover{border-color:var(--accent)}
+.compose{display:flex;gap:8px;padding:10px 12px 12px}.compose textarea{flex:1;font:inherit;resize:none;height:44px;padding:10px 12px;border:1px solid var(--border);border-radius:10px;background:var(--surface-1);color:var(--text-primary)}
+.compose button{font:inherit;border:0;border-radius:10px;padding:0 16px;background:var(--accent);color:#fff;cursor:pointer}.compose button:disabled{opacity:.5;cursor:default}
+/* results */
+.results{display:grid;gap:14px}.row2{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:14px;align-items:start}@media(max-width:1100px){.row2{grid-template-columns:1fr}}.col{display:grid;gap:14px;min-width:0}
+.empty{color:var(--text-muted);padding:40px 10px;text-align:center}
+#map{width:100%;aspect-ratio:1.45;display:block}
+.legend{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);margin-top:8px;flex-wrap:wrap}.legend .sw{width:22px;height:10px;border-radius:2px}
+.rank{list-style:none;margin:0;padding:0}.rank li{display:grid;grid-template-columns:26px minmax(0,1fr) 104px;gap:8px;align-items:center;padding:7px 6px;border-radius:8px;cursor:pointer}
+.rank li:hover{background:var(--surface-2)}.rank li.sel{background:var(--surface-2);outline:1px solid var(--accent)}
+.rank .no{width:22px;height:22px;border-radius:50%;border:1.5px solid var(--text-primary);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:600}
+.rank .nm{font-weight:600;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.rank .mt{font-size:12px;color:var(--text-muted)}.rank .warn{color:var(--warn)}
+.rank .bar{display:flex;align-items:center;gap:6px;font-variant-numeric:tabular-nums;font-size:12px}.rank .bar span{display:block;height:10px;border-radius:4px;background:var(--bar)}
+.bars svg{width:100%;display:block}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:10px}.tile{background:var(--surface-2);border-radius:10px;padding:8px 10px}.tile .k{font-size:12px;color:var(--text-secondary)}.tile .v{font-size:20px;font-weight:650;font-variant-numeric:tabular-nums}
+#tip{position:fixed;pointer-events:none;background:var(--surface-1);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:7px 9px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.15);display:none;z-index:9;max-width:260px}
+.note{font-size:12px;color:var(--text-muted);margin-top:10px}.src{font-size:11px;color:var(--text-muted)}
+.facts{margin:0;padding-left:18px}.facts li{margin:4px 0}
+</style></head><body><div class="wrap">
+<h1>Kraków Sim · zapytaj mieszkańców Krakowa</h1>
+<p class="sub">Syntetyczni mieszkańcy z danych GUS. Agent rozpoznaje, o co pytasz (wydarzenie albo decyzja miasta), dopytuje o szczegóły, a każdą osobę z próbki pyta model decyzyjny Jev.</p>
+<div class="layout">
+ <div class="card chat">
+  <div class="msgs" id="msgs"></div>
+  <div class="pills" id="pills"></div>
+  <div class="compose"><textarea id="inp" placeholder="Opisz wydarzenie albo decyzję miasta, albo napisz, co zmienić…"></textarea><button id="send">Wyślij</button></div>
+ </div>
+ <div class="results" id="results"><div class="card empty">Opisz wydarzenie albo decyzję miasta w czacie. Agent dopyta o brakujące szczegóły, a tutaj pojawią się wyniki: dla wydarzenia ranking miejsc, terminy i publiczność, dla decyzji poparcie według dzielnic i grup.</div></div>
+</div>
+<p class="note" id="note">Indeks 100 = najlepsze miejsce w zestawieniu. Porównanie względne: model dobrze ustawia kolejność i proporcje, a bezwzględną liczbę chętnych trzeba zakotwiczyć w znanej wielkości (sprzedaż, pojemność). Dojazd: ASSUMPTION, szansa spada o połowę co 25–60 min drogi ponad 15 min, zależnie od skali wydarzenia. Lokalizacje i pojemności przybliżone.</p>
+</div><div id="tip"></div>
+<script>
+const $=id=>document.getElementById(id), css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const pct=x=>(x*100).toFixed(0)+'%', fmt=n=>Math.round(n).toLocaleString('pl-PL');
+let slots={}, OPTIONS={}, GEO=null, RES=null, sel=0, busy=false, lastN=0;
+fetch('/api/geo').then(r=>r.json()).then(g=>{GEO=g});
+// ---------- chat primitives
+const scroll=()=>{$('msgs').scrollTop=$('msgs').scrollHeight};
+function el(tag,cls,html){const d=document.createElement(tag);if(cls)d.className=cls;if(html!=null)d.innerHTML=html;return d}
+function add(cls,text){const d=el('div','msg '+cls);d.textContent=text;$('msgs').append(d);scroll();return d}
+function addHTML(html){const d=el('div','msg bot',html);$('msgs').append(d);scroll();return d}
+function chips(items,onpick){const c=el('div','chips');items.forEach(it=>{const b=el('button','chip'+(it.cls?' '+it.cls:''),it.label);b.onclick=()=>{c.remove();onpick(it)};c.append(b)});$('msgs').append(c);scroll();return c}
+const clearChips=()=>document.querySelectorAll('.msgs .chips,.msgs .pricebox').forEach(x=>x.remove());
+add('bot','Cześć! Opisz wydarzenie, które planujesz (co, dla kogo, kiedy, za ile), albo decyzję miasta, którą chcesz sprawdzić (zakaz, opłata, inwestycja, zmiana w komunikacji). Dopytam o resztę i zapytam symulowanych mieszkańców.');
+chips([{label:'Koncert rapowy dla studentów w piątek wieczorem, 60 zł, ok. 1000 osób'},{label:'Piknik rodzinny w niedzielę po południu, za darmo, w Nowej Hucie'},{label:'Strefa Czystego Transportu w całym Krakowie: nie wjadą benzyniaki starsze niż 27 lat i diesle starsze niż 17 lat'},{label:'Miasto chce zamknąć ul. Karmelicką dla aut i zrobić tam deptak z zielenią'},{label:'Chcę otworzyć kawiarnię dla studentów. Gdzie mieszka ich najwięcej i ilu chodzi do kawiarni?'}].map(x=>({...x,cls:'ghost'})),it=>{add('me',it.label);chat({text:it.label})});
+// ---------- talking to the server
+async function chat(body){
+ if(busy)return; busy=true; $('send').disabled=true; clearChips();
+ const wait=add('bot typing','…');
+ try{
+  const r=await fetch('/api/chat',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({slots,...body})}).then(r=>r.json());
+  wait.remove(); slots=r.slots; OPTIONS=r.options||OPTIONS; pills(r.pills||[]);
+  if(r.message){add('bot',r.message)}
+  else if(r.ready&&r.auto){ busy=false; runSim(0); return }
+  else if(r.ready){ if(r.intro){add('bot',r.intro);nChips()} else if(lastN) runSim(lastN); else askN(r.summary) } else ask(r.missing[0]);
+ }catch(e){wait.textContent='Błąd połączenia: '+e}
+ busy=false; $('send').disabled=false;
+}
+function ask(m){
+ add('bot',m.question);
+ if(m.free){$('inp').focus();return}
+ if(m.options) chips(m.options,o=>{add('me',o.label);chat({slot:m.slot,value:o.value})});
+ else priceBox(m.slot);
+}
+function priceBox(slot){const c=el('div','pricebox');const i=el('input');i.type='number';i.min=0;i.step=5;i.placeholder='zł';const b=el('button','chip primary','OK');
+ const go=()=>{if(i.value==='')return;c.remove();add('me',(+i.value?i.value+' zł':'za darmo'));chat({slot,value:+i.value})};b.onclick=go;i.onkeydown=e=>{if(e.key==='Enter')go()};c.append(i,b);$('msgs').append(c);scroll();i.focus()}
+function askN(summary){
+ add('bot','Mam wszystko: '+summary+'.\nIlu mieszkańców zapytać? Więcej osób to dokładniej, ale dłużej.');nChips()}
+function nChips(){
+ chips([{label:'600 · ~15 s',n:600},{label:'1200 · ~30 s',n:1200,cls:'primary'},{label:'2500 · ~1 min',n:2500}],it=>{add('me',it.n+' osób');runSim(it.n)});
+}
+function pills(list){const box=$('pills');box.innerHTML='';list.forEach(p=>{const b=el('button','pill'+(p.value?'':' miss'),`${p.label}: <b>${p.value||'?'}</b>`);
+ b.onclick=()=>{if(busy)return;clearChips();
+  if(p.slot==='place'){add('me','Bez konkretnej lokalizacji');chat({slot:'place',value:'none'});return}
+  add('bot',`Zmień: ${p.label}`);if(OPTIONS[p.slot]) chips(OPTIONS[p.slot],o=>{add('me',o.label);chat({slot:p.slot,value:o.value})}); else priceBox(p.slot)};
+ box.append(b)})}
+function runSim(n){
+ lastN=n; busy=true; $('send').disabled=true;
+ const m=add('bot','Pytam mieszkańców…'); const p=el('div','prog');p.append(el('div'));$('msgs').append(p);scroll();
+ const es=new EventSource('/api/run?n='+n+'&slots='+encodeURIComponent(JSON.stringify(slots)));
+ const done=()=>{es.close();p.remove();busy=false;$('send').disabled=false};
+ es.onmessage=e=>{const d=JSON.parse(e.data);
+  if(d.type==='status'){m.textContent=d.message}
+  if(d.type==='progress'){p.firstChild.style.width=(100*d.done/d.total)+'%';m.textContent=`Pytam mieszkańców… ${d.done}/${d.total}`}
+  if(d.type==='error'){m.textContent='Błąd: '+d.message;done()}
+  if(d.type==='result'&&d.data.mode==='agent'){done();m.textContent='Gotowe.';RES=d.data;slots.prev=RES.response_id;renderAgent();
+   addHTML(md(RES.answer)+(RES.flagged&&RES.flagged.length?`<p class="src">Uwaga: tych liczb nie znalazłem w wynikach narzędzi: ${RES.flagged.join(', ')}.</p>`:''));
+   chips([{label:'Zacznij od nowa',reset:true,cls:'ghost'}],()=>{slots={};lastN=0;RES=null;pills([]);add('bot','Jasne, o co chcesz zapytać?')});return}
+  if(d.type==='result'){done();m.textContent=`Gotowe: odpowiedziało ${d.data.n} osób.`;const prev=RES;RES=d.data;sel=0;render();
+   if(RES.mode==='event'&&prev&&prev.mode==='event'&&prev.summary!==RES.summary&&prev.venues.length&&RES.venues.length){   // what-if: compare the reach of the best venue
+    const a=prev.venues[0].score,b=RES.venues[0].score,ch=(b/a-1)*100;
+    add('bot',`Porównanie z poprzednim wariantem: potencjalna publiczność najlepszego miejsca ${ch>=0?'+':''}${ch.toFixed(0)}% (${prev.venues[0].name} → ${RES.venues[0].name}).`)}
+   addHTML('<ul>'+RES.insights.map(t=>`<li>${t}</li>`).join('')+'</ul>');
+   if(RES.gus&&RES.gus.length)addHTML('<b>Z danych GUS:</b><ul>'+RES.gus.map(f=>`<li>${f.text_pl} <span class="src">(${f.source})</span></li>`).join('')+'</ul>');
+   if(RES.mode==='policy'&&prev&&prev.mode==='policy'&&prev.title!==RES.title)add('bot',`Porównanie z poprzednim wariantem: poparcie ${pct(prev.support)} → ${pct(RES.support)}.`);
+   const sug=(RES.suggestions||[]).map(s=>({...s,cls:''}));
+   chips([...sug,{label:'Zacznij od nowa',reset:true,cls:'ghost'}],it=>{
+    if(it.reset){slots={};lastN=0;RES=null;pills([]);add('bot','Jasne, opisz nowe wydarzenie albo decyzję.');return}
+    add('me',it.label);chat({slot:it.slot,value:it.value})});
+  }};
+ es.onerror=()=>{m.textContent='Połączenie przerwane.';done()};
+}
+$('send').onclick=()=>{const t=$('inp').value.trim();if(!t||busy)return;add('me',t);$('inp').value='';chat({text:t})};
+$('inp').onkeydown=e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();$('send').click()}};
+// ---------- results
+const RL={price:'cena',distance_time:'dojazd / czas',schedule:'praca / rodzina / czas',taste:'zainteresowania i gust',age_health:'wiek / zdrowie',car:'auto',public_transport:'komunikacja',environment:'środowisko',indifferent:'obojętne'};
+function render(){
+ if(RES.mode==='policy')return renderPolicy();
+ if(RES.mode==='agent')return renderAgent();
+ $('note').style.display='';
+ const R=RES,v=R.venues[sel],B=R.barriers||{};
+ const tiles=`<div class="tiles"><div class="tile"><div class="k">Podoba się${B.want_target!=null?' (grupa docelowa)':''}</div><div class="v">${pct(B.want_target??B.want_share??0)}</div></div>`+
+  (B.price_strain!=null?`<div class="tile"><div class="k">Bilet obciąża (zainteresowanych)</div><div class="v">${pct(B.price_strain)}</div></div>`:'')+
+  `<div class="tile"><div class="k">Typowy dojazd</div><div class="v">${v.median_travel??'–'} min</div></div></div>`;
+ $('results').innerHTML=`<div class="row2">
+  <div class="col"><div class="card"><h2>Skąd przyjdzie publiczność: ${v.name}</h2><p class="cap">Chętni na mieszkańca dzielnicy, względnie. Numery = ranking, czerwony = wybrane miejsce.</p><canvas id="map"></canvas><div class="legend" id="legend"></div></div>
+   <div class="card bars"><h2>Wiek publiczności</h2><p class="cap">${v.name}: udział w oczekiwanej publiczności</p><svg id="ages"></svg></div>
+   ${R.when?`<div class="card bars"><h2>Który termin</h2><p class="cap">Oczekiwana publiczność w ${v.name} względem wybranego terminu (100%). Dzień i pora z danych GUS (HETUS 2020: udział w rozrywce i kulturze według dnia, czas wolny według godziny).${R.when.sunday_note?' * niedziela w danych to cały dzień, dla wieczoru pewnie zawyżona.':''}</p><svg id="days"></svg><svg id="times" style="margin-top:8px"></svg></div>`:''}
+   <div class="card bars"><h2>Co decyduje</h2><p class="cap">Główny czynnik według odpowiedzi mieszkańców</p><svg id="reasons"></svg></div></div>
+  <div class="col"><div class="card"><h2>Ranking miejsc</h2><p class="cap">${R.summary} · ${R.n} osób · ${R.n_candidates} pasujących miejsc</p><ul class="rank" id="rank"></ul>
+   ${R.worst?`<p class="cap" style="margin:8px 0 0">Dla porównania najsłabsze: ${R.worst.name}, indeks ${R.worst.index}.</p>`:''}</div>
+   ${(R.gus||[]).length?`<div class="card"><h2>Dane GUS</h2><p class="cap">Prawdziwe liczby dla Krakowa, które agent dobrał do pytania. Każda liczba sprawdzona z tabelą BDL.</p><ul class="facts">${R.gus.map(f=>`<li>${f.text_pl} <span class="src">${f.source}</span></li>`).join('')}</ul></div>`:''}
+   <div class="card bars"><h2>Kto przyjdzie</h2><p class="cap">${v.name}: segmenty publiczności. W nawiasie: ile razy chętniej niż średnio.</p>${tiles}<svg id="segs"></svg></div></div></div>`;
+ const rk=$('rank');R.venues.forEach((x,i)=>{const li=el('li',i===sel?'sel':'');
+  const meta=(x.expected!=null?`~${fmt(x.expected)} osób${x.sellout?' (wyprzedane)':''} · `:'')+(x.kind==='district'?'dowolny lokal w okolicy':'do '+fmt(x.capacity)+' osób')+' · '+pct(x.within_20min)+' do 20 min'+(x.fit&&x.fit!=='pasuje'?` · <span class="warn">${x.fit}</span>`:'');
+  li.innerHTML=`<div class="no">${x.rank}</div><div style="min-width:0"><div class="nm">${x.pinned?'📍 ':''}${x.name}</div><div class="mt">${meta}</div></div><div class="bar"><span style="width:${Math.max(3,x.index*0.7)}px"></span>${x.index}</div>`;
+  li.onclick=()=>{sel=i;render()};rk.append(li)});
+ bars('ages',Object.entries(v.ages).map(([k,x])=>({l:k,v:x})),64);
+ bars('reasons',Object.entries(R.reasons).filter(([k,x])=>x>=0.005).map(([k,x])=>({l:RL[k]||k,v:x})),160);
+ bars('segs',v.segments.filter(s=>s.share>=0.01).map(s=>({l:s.name,v:s.share,extra:` (${s.lift.toFixed(1).replace('.',',')}×)`})),190);
+ if(R.when){const DL={Mon:'pon',Tue:'wt',Wed:'śr',Thu:'czw',Fri:'pt',Sat:'sob',Sun:'nd'},TL={morning:'rano',afternoon:'popołudnie',evening:'wieczór'};
+  bars('days',Object.entries(R.when.days).map(([k,x])=>({l:DL[k]+(k==='Sun'&&R.when.sunday_note?'*':''),v:x})),64);bars('times',Object.entries(R.when.times).map(([k,x])=>({l:TL[k],v:x})),90)}
+ drawMap(v);
+}
+const esc=s=>String(s).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function md(s){const L=esc(s).replace(/\*\*(.+?)\*\*/g,'<b>$1</b>').split('\n');let h='',ul=false;
+ L.forEach(l=>{const b=/^\s*[-•]\s+/.test(l);if(b&&!ul){h+='<ul>';ul=true}if(!b&&ul){h+='</ul>';ul=false}
+  if(b)h+='<li>'+l.replace(/^\s*[-•]\s+/,'')+'</li>';else if(l.trim())h+='<p style="margin:4px 0">'+l+'</p>'});return h+(ul?'</ul>':'')}
+const TOOLPL={query_residents:'dane mieszkańców (GUS, symulacja)',get_table:'tabela GUS',ask_residents:'ankieta Jev',find_place:'miejsce'};
+function renderAgent(){
+ const R=RES;$('note').style.display='none';
+ const steps=R.steps.filter(s=>s.tool!=='find_place'&&!(s.result&&s.result.error));
+ const metric=r=>['share_yes','share','mean','median','people'].find(k=>r[k]!=null)||Object.keys(r).find(k=>k.startsWith('share_'));
+ const fmtv=(k,v)=>k.startsWith('share')?pct(v):fmt(v);
+ $('results').innerHTML=`<div class="card"><h2>Jak to policzyłem</h2><p class="cap">${steps.length} kroków analizy · ${R.survey_people?R.survey_people+' osób zapytanych przez Jev · ':''}każda liczba w odpowiedzi sprawdzona z wynikami narzędzi</p></div>`+
+  steps.map((s,i)=>{const a=s.args,res=s.result;let body='';
+   if(s.tool==='get_table')body=`<p class="cap" style="margin:0">${esc(a.key)} · ${esc(res.source||'')} ${esc(res.year||'')} ${esc((res.note||'').split(';')[0])}</p>`;
+   else if(res.rows&&res.rows.length>1){body=`<svg id="ag${i}"></svg>`}
+   else if(res.rows&&res.rows.length===1){const r=res.rows[0],ks=Object.keys(r).filter(k=>k.startsWith('share')||['people','mean','median'].includes(k));
+    body=`<div class="tiles">${ks.map(k=>`<div class="tile"><div class="k">${k==='people'?'osób':k==='share_yes'?'tak':k.replace('share_','')}</div><div class="v">${fmtv(k,r[k])}</div></div>`).join('')}</div>`}
+   const how=(a.filters||[]).map(f=>`${f.field} ${f.op} ${f.value}`).join(' · ');
+   return `<div class="card bars"><h2>${esc(a.title_pl||a.key||'')}</h2><p class="cap">${TOOLPL[s.tool]}${how?' · '+esc(how):''}${res.rows&&res.rows[0]&&res.rows[0].n_personas!=null?' · n='+res.rows.reduce((x,r)=>x+r.n_personas,0):''}</p>${body}</div>`}).join('');
+ steps.forEach((s,i)=>{const res=s.result;if(!(res.rows&&res.rows.length>1))return;const k=metric(res.rows[0]),g=Object.keys(res.rows[0]).find(x=>!['n_personas','people','share','mean','median'].includes(x)&&!x.startsWith('share_'));
+  const rows=[...res.rows].sort((a,b)=>(b[k]??0)-(a[k]??0)).slice(0,18);const mx=Math.max(...rows.map(r=>r[k]??0),1e-9);
+  bars('ag'+i,rows.map(r=>({l:String(r[g]),v:k.startsWith('share')?r[k]:(r[k]??0)/mx,extra:k.startsWith('share')?'':` · ${fmt(r[k]??0)}`})),190);
+  if(!k.startsWith('share'))$('ag'+i).querySelectorAll('text:nth-child(3n)').forEach(tx=>{tx.textContent=tx.textContent.replace(/^\d+%\s·\s/,'')})});
+}
+function renderPolicy(){
+ const R=RES;$('note').style.display='none';
+ const aff=R.groups.reduce((a,g)=>a+g.share,0);
+ $('results').innerHTML=`<div class="row2">
+  <div class="col"><div class="card"><h2>Poparcie według dzielnic</h2><p class="cap">${R.title} · średnie prawdopodobieństwo „popieram” wśród dorosłych mieszkańców dzielnicy. Ok. ${Math.round(R.n/18)} osób na dzielnicę, różnice poniżej ~10 pkt to szum.</p><canvas id="map"></canvas><div class="legend" id="legend"></div></div>
+   <div class="card bars"><h2>Argumenty</h2><p class="cap">Który argument najbardziej waży: u zwolenników i u przeciwników</p><p class="cap" style="margin:4px 0 0"><b>Zwolennicy</b></p><svg id="afor"></svg><p class="cap" style="margin:10px 0 0"><b>Przeciwnicy</b></p><svg id="aag"></svg></div></div>
+  <div class="col"><div class="card"><h2>Wynik</h2><p class="cap">${R.n} dorosłych mieszkańców Krakowa z próbki</p>
+   <div class="tiles"><div class="tile"><div class="k">Popiera</div><div class="v">${pct(R.support)}</div></div><div class="tile"><div class="k">Bezpośrednio dotknięci</div><div class="v">${pct(aff)}</div></div></div>
+   ${R.assumptions.length?`<p class="cap" style="margin:0">Założenia agenta: ${R.assumptions.map(x=>x.replace(/[.\s]+$/,'')).join('; ')}.</p>`:''}</div>
+   ${R.groups.length?`<div class="card bars"><h2>Kogo to dotyka</h2><p class="cap">Poparcie w grupie bezpośrednio dotkniętej i u pozostałych. W nawiasie: udział dorosłych.</p><svg id="groups"></svg></div>`:''}
+   ${(R.gus||[]).length?`<div class="card"><h2>Dane GUS</h2><p class="cap">Prawdziwe liczby dla Krakowa, które agent dobrał do pytania. Każda liczba sprawdzona z tabelą BDL.</p><ul class="facts">${R.gus.map(f=>`<li>${f.text_pl} <span class="src">${f.source}</span></li>`).join('')}</ul></div>`:''}
+   <div class="card bars"><h2>Kto jest za</h2><p class="cap">Poparcie według etapu życia</p><svg id="segs"></svg></div></div></div>`;
+ const A=(id,list)=>bars(id,list.map(a=>({l:a.label,v:a.share})),170);
+ A('afor',R.args_for.slice(0,4));A('aag',R.args_against.slice(0,4));
+ if(R.groups.length)bars('groups',R.groups.flatMap(g=>[{l:g.name,v:g.support??0,extra:` (${pct(g.share)})`},{l:'pozostali',v:g.support_rest}]),230);
+ bars('segs',R.segments.map(s=>({l:s.name,v:s.support})),190);
+ const vals={};Object.entries(R.districts).forEach(([d,x])=>vals[d]=x.support);
+ choro(vals,'niższe poparcie','wyższe poparcie',d=>{const x=R.districts[d.name];return x?`Popiera: <b>${pct(x.support)}</b><br>Osób w próbce: ${x.n}`:'brak danych'});
+}
+function bars(id,rows,lw){const svg=$(id),W=svg.clientWidth||360,rh=24,H=rows.length*rh+4,max=Math.max(...rows.map(r=>r.v),1e-9),pw=W-lw-90;svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('height',H);
+ svg.innerHTML=rows.map((r,i)=>{const y=i*rh+4,w=Math.max(r.v/max*pw,r.v>0?3:0);const lab=r.l.length>Math.floor(lw/6.6)?r.l.slice(0,Math.floor(lw/6.6)-1)+'…':r.l;return `<text x="${lw-8}" y="${y+13}" text-anchor="end" font-size="12" fill="var(--text-secondary)"><title>${r.l}</title>${lab}</text><rect x="${lw}" y="${y+3}" width="${w}" height="13" rx="4" fill="var(--bar)"/><text x="${lw+w+6}" y="${y+13}" font-size="12" fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${pct(r.v)}${r.extra||''}</text>`}).join('')}
+// ---------- map
+let MS=null;
+function mapSetup(){const cv=$('map'),ctx=cv.getContext('2d'),dpr=devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);
+ const xs=GEO.city.map(p=>p[0]),ys=GEO.city.map(p=>p[1]),kx=Math.cos(50.06*Math.PI/180),B={x0:Math.min(...xs)-.01,x1:Math.max(...xs)+.01,y0:Math.min(...ys)-.006,y1:Math.max(...ys)+.006};
+ const s=Math.min(w/((B.x1-B.x0)*kx),h/(B.y1-B.y0)),ox=(w-(B.x1-B.x0)*kx*s)/2,oy=(h-(B.y1-B.y0)*s)/2;return{ctx,P:(lo,la)=>[ox+(lo-B.x0)*kx*s,oy+(B.y1-la)*s]}}
+// districts coloured by quantile bins of `vals` (district -> number); tip(d) -> tooltip HTML
+function choro(vals,lo,hi,tip){if(!GEO)return null;const{ctx,P}=mapSetup();
+ const dens=GEO.districts.map(d=>vals[d.name]??0),pos=[...dens].sort((a,b)=>a-b),q=k=>pos[Math.floor(k*(pos.length-1))],th=[.15,.3,.45,.6,.75,.9].map(q);
+ const ramp=['--s100','--s200','--s300','--s400','--s500','--s600','--s700'].map(css),bin=x=>th.filter(t=>x>t).length;
+ const path=r=>{ctx.beginPath();r.forEach(([lo,la],i)=>{const[x,y]=P(lo,la);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath()};
+ GEO.districts.forEach((d,i)=>{path(d.ring);ctx.fillStyle=ramp[bin(dens[i])];ctx.fill();ctx.strokeStyle=css('--surface-1');ctx.lineWidth=1.5;ctx.stroke()});
+ path(GEO.city);ctx.strokeStyle=css('--line');ctx.lineWidth=1.6;ctx.stroke();MS={P,tip};
+ $('legend').innerHTML=`<span>${lo}</span>`+ramp.map(c=>`<span class="sw" style="background:${c}"></span>`).join('')+`<span>${hi}</span>`;return{ctx,P}}
+function drawMap(v){const m=choro(Object.fromEntries(GEO.districts.map(d=>[d.name,(v.districts[d.name]||0)/Math.max(d.people,1)])),'mniej','więcej chętnych na mieszkańca',
+  d=>`Udział w publiczności: <b>${pct(v.districts[d.name]||0)}</b><br>Mieszkańcy: ${fmt(d.people)}`);if(!m)return;const{ctx,P}=m;
+ ctx.font='600 11px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';
+ RES.venues.forEach((x,i)=>{if(i===sel)return;const[px,py]=P(x.latlon[1],x.latlon[0]);ctx.fillStyle=css('--surface-1');ctx.strokeStyle=css('--text-primary');ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(px,py,8,0,7);ctx.fill();ctx.stroke();ctx.fillStyle=css('--text-primary');ctx.fillText(x.rank,px,py+.5)});
+ const[vx,vy]=P(v.latlon[1],v.latlon[0]);ctx.fillStyle=css('--venue');ctx.strokeStyle=css('--surface-1');ctx.lineWidth=2;ctx.beginPath();ctx.arc(vx,vy,9,0,7);ctx.fill();ctx.stroke();ctx.fillStyle='#fff';ctx.fillText(v.rank,vx,vy+.5);
+ ctx.textAlign='start';ctx.textBaseline='alphabetic'}
+function pip(x,y,r){let c=false;for(let i=0,j=r.length-1;i<r.length;j=i++){const[xi,yi]=r[i],[xj,yj]=r[j];if((yi>y)!==(yj>y)&&x<(xj-xi)*(y-yi)/(yj-yi)+xi)c=!c}return c}
+document.addEventListener('pointermove',e=>{const cv=$('map'),tip=$('tip');if(!cv||!MS||e.target!==cv){tip.style.display='none';return}
+ const b=cv.getBoundingClientRect(),x=e.clientX-b.left,y=e.clientY-b.top;let k=-1;
+ GEO.districts.forEach((d,i)=>{if(pip(x,y,d.ring.map(([lo,la])=>MS.P(lo,la))))k=i});
+ if(k<0){tip.style.display='none';return}const d=GEO.districts[k];
+ tip.innerHTML=`<b>${d.name}</b><br>`+MS.tip(d);tip.style.display='block';tip.style.left=(e.clientX+14)+'px';tip.style.top=(e.clientY+14)+'px'});
+addEventListener('resize',()=>{if(RES)render()});
+</script></body></html>
