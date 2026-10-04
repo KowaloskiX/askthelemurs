@@ -66,29 +66,26 @@ The limits are covered in [docs/CONTEXT.md](docs/CONTEXT.md), in Polish. Simulat
 
 ## Run locally
 
-Requirements: Python 3.12, Node 20+ with pnpm, and API keys for OpenAI and TypeSafe (Jev).
+Requirements: Python 3.12, Node 20+ with pnpm, and API keys for OpenAI and TypeSafe (Jev). Tested on a fresh clone: about 2 minutes to a running app.
 
 ```bash
-cp .env.example .env          # fill in the keys
+cp .env.example .env               # fill in OPENAI_API_KEY and TYPESAFE_API_KEY
 pip install -r requirements.txt
-make rebuild                  # one-off: rebuild out/ (personas, attitudes, travel times); see below
-make app                      # API on http://localhost:8000
-cd web && pnpm install && cd ..
-make web                      # app on http://localhost:3000
+make quick                         # builds out/ from the committed data in ~15 s
+make app                           # API on http://localhost:8000
+cd web && pnpm install && pnpm dev # app on http://localhost:3000 (second terminal)
 ```
 
-`out/` is not in the repository. `make rebuild` re-creates it from `data/`. The travel-time step needs Java 21 and the optional packages listed in `requirements.txt`.
+`make quick` builds the residents, their political leaning and the heuristic event model. It skips the travel-time matrix, so travel times fall back to a distance formula. For real door-to-door times, run `make travel` once. It needs Java 21 and the optional packages in `requirements.txt`, downloads the MPK timetable and a 200 MB OpenStreetMap extract, and takes a while.
 
 | Command | What it does |
 |---|---|
-| `make data` | Fetch GUS data (BDL key in `.env`, throttled) and district borders |
-| `make extra` | Fetch HETUS, PKW precinct results, OSM shops and services, police and safety data |
-| `make personas N=50000` | Generate the synthetic residents → `out/personas.csv` |
-| `make attitudes` | Political leaning per resident → `out/attitudes.csv` |
+| `make quick` | Residents, political leaning, heuristic model → `out/` |
 | `make travel` | Door-to-door travel times (R5) → `out/travel_times.parquet` |
+| `make data` / `make extra` | Re-fetch the source data (GUS needs `BDL_KEY`; PKW, OSM, HETUS, police) |
 | `make app` / `make web` | API (FastAPI, SSE) / frontend (Next.js) |
 
-A question costs about 6–15 ¢ in API calls. Repeat questions are served from a cache in `out/`.
+The first run of a question costs about 6–15 ¢ in API calls. Repeat questions come from a cache in `out/`. A city decision is first restated by gpt-5.4 (who is affected, assumptions), and that wording varies between runs. The same question can land a few points apart: 54% on a fresh run against 58% in the demo for the night alcohol ban.
 
 ## Deploy
 

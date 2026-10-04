@@ -6,7 +6,8 @@ personas:  ; python3 src/personas.py $(N)
 extra:     ; python3 src/fetch_time_use.py && python3 src/fetch_pkw_krakow.py && python3 src/fetch_osm_poi.py && python3 src/fetch_crime_krakow.py
 attitudes: ; python3 src/attitudes.py
 travel:    ; python3 src/travel_times.py
-rebuild:   personas attitudes travel sim   # re-create out/ from the committed data/
+quick:     personas attitudes sim          # out/ from the committed data/ in ~15 s (travel times fall back to a formula)
+rebuild:   quick travel                    # also real door-to-door travel times (Java 21, r5py)
 sim:       ; python3 src/simulate.py $(SCENARIO)
 agents:    ; python3 src/agents.py $(SCENARIO)
 jev:       ; python3 src/jev_sim.py $(SCENARIO)
@@ -15,4 +16,4 @@ ask:       ; python3 src/ask.py "$(Q)"
 app:       ; python3 -m uvicorn app.server:app --port 8000
 web:       ; cd web && pnpm dev   # Next.js front on :3000, needs `make app` (API on :8000)
 viz:       ; python3 viz/build_map.py
-.PHONY: all data extra personas attitudes travel rebuild sim agents jev calibrate ask app web viz
+.PHONY: all data extra personas attitudes travel quick rebuild sim agents jev calibrate ask app web viz
