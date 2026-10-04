@@ -1,0 +1,18 @@
+.env
+out/
+__pycache__/
+.DS_Store
+.ipynb_checkpoints/
+_to_delete/
+web/node_modules/
+web/.next/
+web/public/maplibre/
+data/raw/osm/
+data/raw/gtfs/
+data/raw/crime_krakow/
+# raw downloads re-created by src/fetch_*.py (processed JSON next to them is committed)
+data/raw/bo_krakow/
+data/raw/pkw_krakow/
+# third-party paper, cited in docs/CONTEXT.md instead of redistributed
+data/raw/exitpoll_2023_czesnik.pdf
+*.tsbuildinfo

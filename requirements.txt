@@ -1,0 +1,11 @@
+numpy
+pandas
+pyproj
+requests
+shapely
+anthropic
+pydantic
+openpyxl
+typesafe-sdk
+fastapi
+uvicorn
