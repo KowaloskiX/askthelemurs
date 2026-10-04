@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="pl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Kraków Sim</title>
+<style>
+:root{color-scheme:light;--bg:#f4f3f0;--surface-1:#fcfcfb;--border:#e3e2dd;--text-primary:#0b0b0b;--text-secondary:#52514e;--text-muted:#77766f;--grid:#ebeae6;
+--s100:#cde2fb;--s200:#9ec5f4;--s300:#6da7ec;--s400:#3987e5;--s500:#256abf;--s600:#184f95;--s700:#0d366b;--bar:#2a78d6;--bar-dim:#b9d3f3;--venue:#e34948;--empty:#efeeea;--line:rgba(11,11,11,.35);--line-strong:rgba(11,11,11,.75)}
+@media (prefers-color-scheme:dark){:root:where(:not([data-theme="light"])){color-scheme:dark;--bg:#111110;--surface-1:#1a1a19;--border:#2e2e2b;--text-primary:#fff;--text-secondary:#c3c2b7;--text-muted:#929189;--grid:#2a2a27;
+--s100:#0d366b;--s200:#104281;--s300:#184f95;--s400:#1c5cab;--s500:#2a78d6;--s600:#5598e7;--s700:#9ec5f4;--bar:#3987e5;--bar-dim:#1f3a5f;--venue:#e66767;--empty:#232321;--line:rgba(255,255,255,.3);--line-strong:rgba(255,255,255,.75)}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#111110;--surface-1:#1a1a19;--border:#2e2e2b;--text-primary:#fff;--text-secondary:#c3c2b7;--text-muted:#929189;--grid:#2a2a27;
+--s100:#0d366b;--s200:#104281;--s300:#184f95;--s400:#1c5cab;--s500:#2a78d6;--s600:#5598e7;--s700:#9ec5f4;--bar:#3987e5;--bar-dim:#1f3a5f;--venue:#e66767;--empty:#232321;--line:rgba(255,255,255,.3);--line-strong:rgba(255,255,255,.75)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text-primary);font:14px/1.45 system-ui,-apple-system,Segoe UI,sans-serif}
+.wrap{max-width:1240px;margin:0 auto;padding:20px 16px 40px}
+h1{font-size:20px;margin:0 0 2px}.sub{color:var(--text-secondary);margin:0 0 16px}
+.filters{display:flex;flex-wrap:wrap;gap:12px 20px;align-items:end;background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:14px 16px;margin-bottom:14px}
+.f{display:flex;flex-direction:column;gap:4px;min-width:140px}.f label{font-size:12px;color:var(--text-secondary)}
+.f output{font-variant-numeric:tabular-nums;color:var(--text-primary);font-weight:600}
+.f.chk{flex-direction:row;align-items:center;gap:6px;min-width:0}.f.chk label{font-size:13px;color:var(--text-primary)}
+select,input[type=range]{font:inherit;color:inherit;background:var(--surface-1);border:1px solid var(--border);border-radius:8px;padding:5px 8px;max-width:100%}
+input[type=range]{padding:0;border:0;accent-color:var(--bar)}input[type=checkbox]{accent-color:var(--bar);width:16px;height:16px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:12px;margin-bottom:14px}
+.tile{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:12px 14px}
+.tile .k{font-size:12px;color:var(--text-secondary)}.tile .v{font-size:26px;font-weight:650;font-variant-numeric:tabular-nums}.tile .n{font-size:12px;color:var(--text-muted)}
+.grid2{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(0,1fr);gap:14px;margin-bottom:14px}@media(max-width:860px){.grid2{grid-template-columns:1fr}}
+.grid3{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px}
+.card{background:var(--surface-1);border:1px solid var(--border);border-radius:12px;padding:14px 16px;min-width:0}
+.card h2{font-size:14px;margin:0 0 2px}.card p.cap{font-size:12px;color:var(--text-muted);margin:0 0 10px}
+.head{display:flex;justify-content:space-between;align-items:start;gap:10px;flex-wrap:wrap}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:8px;overflow:hidden}.seg button{font:inherit;font-size:12px;border:0;background:transparent;color:var(--text-secondary);padding:4px 10px;cursor:pointer}
+.seg button[aria-pressed=true]{background:var(--bar);color:#fff}
+#map{width:100%;aspect-ratio:1.3;display:block;touch-action:none;cursor:crosshair}
+.legend{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--text-secondary);margin-top:8px;flex-wrap:wrap}
+.legend .sw{width:22px;height:10px;border-radius:2px}
+.bars svg{width:100%;display:block}.bars g.click{cursor:pointer}
+#tip{position:fixed;pointer-events:none;background:var(--surface-1);color:var(--text-primary);border:1px solid var(--border);border-radius:8px;padding:7px 9px;font-size:12px;box-shadow:0 4px 14px rgba(0,0,0,.15);display:none;z-index:9;max-width:260px}
+#tip b{font-variant-numeric:tabular-nums}
+details{margin-top:10px;font-size:12px;color:var(--text-secondary)}table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}td,th{padding:3px 6px;border-bottom:1px solid var(--grid);text-align:right}td:first-child,th:first-child{text-align:left}
+.note{font-size:12px;color:var(--text-muted);margin-top:14px}
+</style></head><body><div class="wrap">
+<h1>Kraków Sim: kto przyjdzie na wydarzenie i gdzie je zrobić?</h1>
+<p class="sub">Syntetyczni mieszkańcy z danych GUS (NSP 2021, siatka 1 km + BDL 2025), podzieleni na 18 dzielnic, plus studenci spoza Krakowa. Kliknij mapę, żeby postawić scenę.</p>
+<div class="filters">
+ <div class="f"><label for="venue">Miejsce</label><select id="venue"></select></div>
+ <div class="f"><label for="genre">Gatunek</label><select id="genre"></select></div>
+ <div class="f"><label for="day">Dzień</label><select id="day"><option value="Mon">poniedziałek</option><option value="Tue">wtorek</option><option value="Wed">środa</option><option value="Thu">czwartek</option><option value="Fri">piątek</option><option value="Sat">sobota</option><option value="Sun">niedziela</option></select></div>
+ <div class="f"><label for="price">Cena biletu: <output id="priceO"></output></label><input id="price" type="range" min="0" max="600" step="10"></div>
+ <div class="f"><label for="tage">Docelowy wiek: <output id="tageO"></output></label><input id="tage" type="range" min="16" max="70" step="1"></div>
+ <div class="f"><label for="decay">Wrażliwość na dojazd: <output id="decayO"></output></label><input id="decay" type="range" min="0" max="0.4" step="0.02"></div>
+ <div class="f"><label for="cap">Pojemność: <output id="capO"></output></label><input id="cap" type="range" min="200" max="40000" step="100"></div>
+ <div class="f chk"><input id="stu" type="checkbox" checked><label for="stu">Studenci spoza Krakowa</label></div>
+</div>
+<div class="tiles">
+ <div class="tile"><div class="k">Zainteresowani</div><div class="v" id="tTot">–</div><div class="n">suma prawdopodobieństw × populacja</div></div>
+ <div class="tile"><div class="k">Popyt / pojemność</div><div class="v" id="tRatio">–</div><div class="n" id="tCapN"></div></div>
+ <div class="tile"><div class="k">Mediana wieku zainteresowanych</div><div class="v" id="tAge">–</div><div class="n">wiek, w którym suma szans przekracza połowę</div></div>
+ <div class="tile"><div class="k">Z odległości do 5 km</div><div class="v" id="tNear">–</div><div class="n">odsetek zainteresowanych</div></div>
+ <div class="tile"><div class="k">Studenci spoza Krakowa</div><div class="v" id="tStu">–</div><div class="n">odsetek zainteresowanych</div></div>
+</div>
+<div class="grid2">
+ <div class="card"><div class="head"><div><h2>Skąd przyjdą ludzie</h2><p class="cap" id="mapCap"></p></div>
+  <div class="seg" role="group" aria-label="Widok mapy"><button id="mCells" aria-pressed="true">Kwadraty 1 km</button><button id="mDist" aria-pressed="false">Dzielnice</button></div></div>
+  <canvas id="map"></canvas><div class="legend" id="legend"></div></div>
+ <div class="card bars"><h2>Gdzie zrobić to wydarzenie?</h2><p class="cap">To samo wydarzenie postawione w środku ciężkości mieszkańców każdej dzielnicy. Liczba zainteresowanych z całej aglomeracji. Kliknij słupek, żeby tam przenieść scenę.</p>
+  <svg id="rankBars"></svg><details><summary>Tabela</summary><table id="rankTbl"></table></details></div>
+</div>
+<div class="grid3">
+ <div class="card bars"><h2>Skąd jest publiczność</h2><p class="cap">Zainteresowani według dzielnicy zamieszkania, dla wybranego miejsca</p><svg id="homeBars"></svg>
+  <details><summary>Tabela</summary><table id="homeTbl"></table></details></div>
+ <div class="card bars"><h2>Szansa pójścia wg wieku</h2><p class="cap">Średnie prawdopodobieństwo w grupie</p><svg id="ageBars"></svg></div>
+ <div class="card bars"><h2>Szansa pójścia wg odległości</h2><p class="cap">Od miejsca zamieszkania do miejsca wydarzenia</p><svg id="distBars"></svg></div>
+</div>
+<p class="note">Dane: GUS NSP 2021 (siatka 1 km, prostokąt wokół Krakowa z częścią przedmieść), GUS BDL 2025 (wiek×płeć, płace, auta, bezrobocie), granice dzielnic © OpenStreetMap (ODbL). Studenci spoza Krakowa (~90 tys.), ich rozmieszczenie wokół kampusów, gusta muzyczne, dochody i model decyzji to założenia (ASSUMPTION w src/). Wynik to „chcieliby pójść”, nie sprzedane bilety. Model nieskalibrowany.</p>
+</div><div id="tip"></div>
+<script>
+const D=/*__DATA__*/null;
+const $=id=>document.getElementById(id), css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const fmt=n=>Math.round(n).toLocaleString('pl-PL'), pct=x=>(x*100).toFixed(1).replace('.',',')+'%';
+const N=D.persons.length, scale=D.pop/N, DN=D.districts.length, OUT=DN-1; // last district = "poza Krakowem"
+// ---- controls
+D.venues.forEach((v,i)=>$('venue').add(new Option(v.name,i)));$('venue').add(new Option('Własne miejsce','custom'));D.tastes.forEach(t=>$('genre').add(new Option(t,t)));
+const S=D.scenario;$('genre').value=S.genre;$('day').value=S.weekday;$('price').value=S.price;$('tage').value=S.target_age;$('decay').value=S.distance_decay??0.06;
+let cur={name:D.venues[0].name,latlon:D.venues[0].latlon}; $('cap').value=D.venues[0].capacity;
+const customOpt=$('venue').querySelector('option[value=custom]');
+function setVenue(name,latlon,cap){cur={name,latlon};customOpt.textContent=name;$('venue').value='custom';if(cap)$('cap').value=cap;run()}
+$('venue').addEventListener('input',()=>{const v=$('venue').value;if(v==='custom')return;const x=D.venues[+v];cur={name:x.name,latlon:x.latlon};$('cap').value=x.capacity;customOpt.textContent='Własne miejsce';run()});
+const GENERIC_ADJ={"pop":["rock","hip-hop","elektronika","disco polo"],"rock":["pop","elektronika"],"hip-hop":["pop","elektronika"],"elektronika":["pop","hip-hop"],"klasyka/jazz":["rock"],"disco polo":["pop"]};
+let mode='cells';
+// ---- model: JS port of utility() in src/simulate.py. Split into a venue-independent part + distance term.
+function km(a,b,c,d){const R=6371,r=Math.PI/180,la1=a*r,la2=c*r,h=Math.sin((la2-la1)/2)**2+Math.cos(la1)*Math.cos(la2)*Math.sin((d-b)*r/2)**2;return 2*R*Math.asin(Math.sqrt(h))}
+const distToD=D.districts.slice(0,OUT).map(d=>Float32Array.from(D.persons,p=>km(p[1],p[2],d.lat,d.lon))); // fixed venue candidates
+const base=new Float64Array(N);
+function computeBase(genre,day,price,ta){
+ const adjFor=fav=>genre===S.genre?(S.adjacent[fav]||[]):(GENERIC_ADJ[fav]||[]), away={Fri:.3,Sat:.8,Sun:.8}[day]||0;
+ for(let i=0;i<N;i++){const[ci,lat,lon,age,st,inc,car,fav,di,stu]=D.persons[i],favN=D.tastes[fav],stN=D.statuses[st];
+  let u=-2.2; u+=favN===genre?2.0:(adjFor(favN).includes(genre)?0.4:-1.0); u+=-Math.abs(age-ta)/12;
+  const budget=Math.max(inc,300)*0.04; u+=-1.2*Math.max(0,Math.log(Math.max(price,1)/budget));
+  u+=car?0.2:0;
+  if((day==='Fri'||day==='Sat')&&(stN==='pracuje'||stN==='student'))u+=0.4;
+  if(stu)u-=away;
+  if(age<16||age>80)u-=2.5;
+  base[i]=u}}
+const sig=u=>1/(1+Math.exp(-u));
+function run(){
+ const genre=$('genre').value,day=$('day').value,price=+$('price').value,ta=+$('tage').value,decay=+$('decay').value,cap=+$('cap').value,withStu=$('stu').checked;
+ $('priceO').textContent=price+' zł';$('tageO').textContent=ta;$('decayO').textContent=decay.toFixed(2).replace('.',',')+' / km';$('capO').textContent=fmt(cap);
+ computeBase(genre,day,price,ta);
+ const v=cur, cellE=new Float64Array(D.cells.length), homeS=new Float64Array(DN), homeN=new Float64Array(DN), ages=[],
+  ageBands=[[0,17],[18,24],[25,34],[35,49],[50,64],[65,120]].map(b=>({b,s:0,n:0})), rings=[[0,3],[3,6],[6,10],[10,20],[20,99]].map(b=>({b,s:0,n:0}));
+ let tot=0,near=0,stuS=0;
+ for(let i=0;i<N;i++){const p=D.persons[i],[ci,lat,lon,age,,,,,di,stu]=p; if(stu&&!withStu)continue;
+  const d=km(lat,lon,v.latlon[0],v.latlon[1]), pr=sig(base[i]-decay*d);
+  tot+=pr; cellE[ci]+=pr*scale; homeS[di]+=pr; homeN[di]++; ages.push([age,pr]); if(d<5)near+=pr; if(stu)stuS+=pr;
+  for(const a of ageBands)if(age>=a.b[0]&&age<=a.b[1]){a.s+=pr;a.n++}
+  for(const r of rings)if(d>=r.b[0]&&d<r.b[1]){r.s+=pr;r.n++}}
+ // ranking: same event at each district centre
+ const rank=D.districts.slice(0,OUT).map((dd,k)=>{const dist=distToD[k];let s=0,s5=0,loc=0;
+  for(let i=0;i<N;i++){const p=D.persons[i];if(p[9]&&!withStu)continue;const pr=sig(base[i]-decay*dist[i]);s+=pr;if(dist[i]<5)s5+=pr;if(p[8]===k)loc+=pr}
+  return {k,name:dd.name,v:s*scale,near:s5/s,local:loc/s}}).sort((a,b)=>b.v-a.v);
+ const total=tot*scale; $('tTot').textContent=fmt(total);
+ $('tRatio').textContent=(total/cap).toFixed(1).replace('.',',')+'×'; $('tCapN').textContent=v.name+', '+fmt(cap)+' miejsc';
+ $('tNear').textContent=pct(near/tot); $('tStu').textContent=withStu?pct(stuS/tot):'wyłączeni';
+ ages.sort((a,b)=>a[0]-b[0]); let acc=0,med=0; for(const[a,pr]of ages){acc+=pr;if(acc>=tot/2){med=a;break}} $('tAge').textContent=med+' lat';
+ const home=D.districts.map((d,k)=>({k,l:d.name,v:homeS[k]*scale,rate:homeN[k]?homeS[k]/homeN[k]:0,n:homeN[k]})).sort((a,b)=>b.v-a.v);
+ drawMap(cellE,home,rank);
+ const rankCur=rank.findIndex(r=>v.name==='Środek: '+r.name);
+ bars('rankBars',rank.map(r=>({l:r.name,v:r.v,txt:fmt(r.v),tip:`Środek dzielnicy <b>${r.name}</b><br>Zainteresowani: <b>${fmt(r.v)}</b><br>Z odległości do 5 km: <b>${pct(r.near)}</b><br>Mieszkańcy tej dzielnicy: <b>${pct(r.local)}</b><br><span style="color:var(--text-muted)">kliknij, żeby postawić tu scenę</span>`,
+  click:()=>{const d=D.districts[r.k];setVenue('Środek: '+r.name,[d.lat,d.lon])}})),{lw:150,hi:rankCur});
+ $('rankTbl').innerHTML='<tr><th>Dzielnica</th><th>Zainteresowani</th><th>&lt;5 km</th><th>Lokalni</th></tr>'+rank.map(r=>`<tr><td>${r.name}</td><td>${fmt(r.v)}</td><td>${pct(r.near)}</td><td>${pct(r.local)}</td></tr>`).join('');
+ bars('homeBars',home.map(h=>({l:h.l,v:h.v,txt:fmt(h.v),tip:`${h.l}<br>Zainteresowani: <b>${fmt(h.v)}</b><br>Na 1000 mieszkańców: <b>${(h.rate*1000).toFixed(0)}</b><br>Person w próbie: <b>${h.n}</b>`})),{lw:150});
+ $('homeTbl').innerHTML='<tr><th>Dzielnica</th><th>Zainteresowani</th><th>Na 1000 mieszk.</th></tr>'+home.map(h=>`<tr><td>${h.l}</td><td>${fmt(h.v)}</td><td>${(h.rate*1000).toFixed(0)}</td></tr>`).join('');
+ bars('ageBars',ageBands.map(a=>{const l=a.b[1]>=120?'65+':a.b[0]+'–'+a.b[1],x=a.n?a.s/a.n:0;return{l,v:x,txt:pct(x),tip:`${l}<br>Średnia szansa: <b>${pct(x)}</b><br>Person w próbie: <b>${a.n}</b>`}}));
+ bars('distBars',rings.map(r=>{const l=r.b[1]>=99?'20+ km':r.b[0]+'–'+r.b[1]+' km',x=r.n?r.s/r.n:0;return{l,v:x,txt:pct(x),tip:`${l}<br>Średnia szansa: <b>${pct(x)}</b><br>Person w próbie: <b>${r.n}</b>`}}));
+}
+// ---- map (canvas, equirectangular around Kraków)
+const cv=$('map'),ctx=cv.getContext('2d'); let MS=null;
+const lat0=50.06,kx=Math.cos(lat0*Math.PI/180);
+const lats=D.cells.map(c=>c[0]),lons=D.cells.map(c=>c[1]);const B={la0:Math.min(...lats)-.01,la1:Math.max(...lats)+.01,lo0:Math.min(...lons)-.015,lo1:Math.max(...lons)+.015};
+function pip(lon,lat,ring){let c=false;for(let i=0,j=ring.length-1;i<ring.length;j=i++){const[xi,yi]=ring[i],[xj,yj]=ring[j];if((yi>lat)!==(yj>lat)&&lon<(xj-xi)*(lat-yi)/(yj-yi)+xi)c=!c}return c}
+function drawMap(E,home,rank){const dpr=devicePixelRatio||1,w=cv.clientWidth,h=cv.clientHeight;cv.width=w*dpr;cv.height=h*dpr;ctx.setTransform(dpr,0,0,dpr,0,0);ctx.clearRect(0,0,w,h);
+ const sx=w/((B.lo1-B.lo0)*kx),sy=h/(B.la1-B.la0),s=Math.min(sx,sy),ox=(w-(B.lo1-B.lo0)*kx*s)/2,oy=(h-(B.la1-B.la0)*s)/2;
+ const P=(la,lo)=>[ox+(lo-B.lo0)*kx*s,oy+(B.la1-la)*s], inv=(x,y)=>[B.la1-(y-oy)/s,B.lo0+(x-ox)/(kx*s)], cell=s*(1/111.3)-1.2;
+ const ramp=['--s100','--s200','--s300','--s400','--s500','--s600','--s700'].map(css), empty=css('--empty');
+ const quant=vals=>{const pos=vals.filter(x=>x>0).sort((a,b)=>a-b),q=k=>pos[Math.floor(k*(pos.length-1))]||0,th=[.15,.3,.45,.6,.75,.9].map(q);return x=>x<=0?-1:th.filter(t=>x>t).length};
+ const path=rings=>{ctx.beginPath();for(const r of rings){r.forEach(([lo,la],i)=>{const[x,y]=P(la,lo);i?ctx.lineTo(x,y):ctx.moveTo(x,y)});ctx.closePath()}};
+ const rects=[];
+ const rateBy=Object.fromEntries(home.map(hh=>[hh.k,hh]));
+ if(mode==='cells'){const bin=quant([...E]);
+  D.cells.forEach((c,i)=>{const[x,y]=P(c[0],c[1]);const b=bin(E[i]);ctx.fillStyle=b<0?empty:ramp[b];ctx.beginPath();ctx.roundRect(x-cell/2,y-cell/2,cell,cell,1.5);ctx.fill();rects.push([x,y,i])});
+  $('mapCap').textContent='Oczekiwana liczba zainteresowanych na kwadrat 1 km². Czerwony punkt = scena.';
+ }else{const vals=D.districts.slice(0,OUT).map((d,k)=>rateBy[k].rate),bin=quant(vals);
+  D.cells.forEach((c,i)=>{if(c[3]!==OUT)return;const[x,y]=P(c[0],c[1]);ctx.fillStyle=empty;ctx.beginPath();ctx.roundRect(x-cell/2,y-cell/2,cell,cell,1.5);ctx.fill()});
+  D.districts.slice(0,OUT).forEach((d,k)=>{path(d.rings);ctx.fillStyle=ramp[Math.max(0,bin(vals[k]))];ctx.fill()});
+  $('mapCap').textContent='Zainteresowani na 1000 mieszkańców dzielnicy (miejsce zamieszkania). Szare = poza Krakowem.';}
+ // district outlines + city boundary
+ ctx.lineJoin='round';ctx.strokeStyle=mode==='cells'?css('--line'):css('--surface-1');ctx.lineWidth=mode==='cells'?.8:1.5;D.districts.slice(0,OUT).forEach(d=>{path(d.rings);ctx.stroke()});
+ ctx.strokeStyle=css('--line-strong');ctx.lineWidth=1.6;path(D.city);ctx.stroke();
+ // top-3 district centres from the ranking
+ ctx.font='600 11px system-ui';ctx.textAlign='center';ctx.textBaseline='middle';
+ rank.slice(0,3).forEach((r,j)=>{const d=D.districts[r.k],[x,y]=P(d.lat,d.lon);ctx.fillStyle=css('--surface-1');ctx.strokeStyle=css('--text-primary');ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(x,y,8,0,7);ctx.fill();ctx.stroke();ctx.fillStyle=css('--text-primary');ctx.fillText(j+1,x,y+.5)});
+ ctx.textAlign='start';ctx.textBaseline='alphabetic';
+ const[vx,vy]=P(cur.latlon[0],cur.latlon[1]);ctx.fillStyle=css('--venue');ctx.strokeStyle=css('--surface-1');ctx.lineWidth=2;ctx.beginPath();ctx.arc(vx,vy,7,0,7);ctx.fill();ctx.stroke();
+ ctx.font='600 12px system-ui';ctx.lineWidth=4;ctx.strokeStyle=css('--surface-1');ctx.strokeText(cur.name,vx+10,vy-8);ctx.fillStyle=css('--text-primary');ctx.fillText(cur.name,vx+10,vy-8);
+ MS={rects,E,cell,inv,rateBy};
+ $('legend').innerHTML='<span>mniej</span>'+ramp.map(c=>`<span class="sw" style="background:${c}"></span>`).join('')+`<span>więcej</span><span style="margin-left:8px;background:${empty}" class="sw"></span><span>${mode==='cells'?'brak person w próbie':'poza Krakowem'}</span>`+
+  '<span style="margin-left:8px;display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;border:1.5px solid var(--text-primary);font-size:10px;font-weight:600">1</span><span>najlepsze dzielnice z rankingu</span>';}
+const tip=$('tip');function showTip(e,html){tip.innerHTML=html;tip.style.display='block';const r=tip.getBoundingClientRect();let x=e.clientX+14,y=e.clientY+14;if(x+r.width>innerWidth-8)x=e.clientX-r.width-14;if(y+r.height>innerHeight-8)y=e.clientY-r.height-14;tip.style.left=x+'px';tip.style.top=y+'px'}
+const xy=e=>{const b=cv.getBoundingClientRect();return[e.clientX-b.left,e.clientY-b.top]};
+cv.addEventListener('pointermove',e=>{if(!MS)return;const[x,y]=xy(e);
+ if(mode==='dist'){const[la,lo]=MS.inv(x,y),k=D.districts.slice(0,OUT).findIndex(d=>d.rings.some(r=>pip(lo,la,r)));if(k<0){tip.style.display='none';return}
+  const hh=MS.rateBy[k],d=D.districts[k];showTip(e,`<b>${d.name}</b><br>Mieszkańcy (z korektą o studentów): <b>${fmt(d.people)}</b><br>Zainteresowani stąd: <b>${fmt(hh.v)}</b><br>Na 1000 mieszkańców: <b>${(hh.rate*1000).toFixed(0)}</b>`);return}
+ const h=MS.cell/2+1,hit=MS.rects.find(([cx,cy])=>Math.abs(cx-x)<=h&&Math.abs(cy-y)<=h);if(!hit){tip.style.display='none';return}
+ const c=D.cells[hit[2]];showTip(e,`${D.districts[c[3]].name}<br>Mieszkańcy (NSP 2021): <b>${fmt(c[2])}</b><br>Zainteresowani: <b>${fmt(MS.E[hit[2]])}</b><br><span style="color:var(--text-muted)">kliknij, żeby postawić tu scenę</span>`)});
+cv.addEventListener('pointerleave',()=>tip.style.display='none');
+cv.addEventListener('click',e=>{if(!MS)return;const[x,y]=xy(e),[la,lo]=MS.inv(x,y);setVenue('Własne miejsce',[+la.toFixed(4),+lo.toFixed(4)])});
+for(const[id,m]of[['mCells','cells'],['mDist','dist']])$(id).addEventListener('click',()=>{mode=m;$('mCells').setAttribute('aria-pressed',m==='cells');$('mDist').setAttribute('aria-pressed',m==='dist');run()});
+// ---- bars (SVG, single series). opts: lw = label width, hi = highlighted row
+function bars(id,rows,opts={}){const svg=$(id),W=svg.clientWidth||360,rowH=24,lw=opts.lw||64,H=rows.length*rowH+4;
+ const max=Math.max(...rows.map(r=>r.v),1e-9);svg.setAttribute('viewBox',`0 0 ${W} ${H}`);svg.setAttribute('height',H);
+ const pw=W-lw-64;svg.innerHTML=rows.map((r,i)=>{const y=i*rowH+4,w=Math.max(r.v/max*pw,r.v>0?3:0),hi=opts.hi===undefined||opts.hi<0||opts.hi===i;
+  return `<g data-i="${i}" class="${r.click?'click':''}"><rect x="0" y="${y-2}" width="${W}" height="${rowH}" fill="transparent"/><text x="${lw-8}" y="${y+13}" text-anchor="end" font-size="12" fill="var(--text-secondary)">${r.l}</text><rect x="${lw}" y="${y+3}" width="${w}" height="13" rx="4" fill="var(${hi?'--bar':'--bar-dim'})"/><text x="${lw+w+6}" y="${y+13}" font-size="12" fill="var(--text-primary)" style="font-variant-numeric:tabular-nums">${r.txt}</text></g>`}).join('');
+ svg.querySelectorAll('g').forEach(g=>{const r=rows[+g.dataset.i];g.addEventListener('pointermove',e=>showTip(e,r.tip));g.addEventListener('pointerleave',()=>tip.style.display='none');if(r.click)g.addEventListener('click',r.click)})}
+['genre','day','price','tage','decay','cap','stu'].forEach(id=>$(id).addEventListener('input',run));addEventListener('resize',run);
+matchMedia('(prefers-color-scheme: dark)').addEventListener('change',run);run();
+</script></body></html>
