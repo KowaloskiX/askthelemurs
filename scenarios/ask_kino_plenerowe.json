@@ -1,0 +1,24 @@
+{
+ "kind": "custom",
+ "name": "Letnie kino plenerowe: gdzie i czy w ogóle (scenariusz hipotetyczny)",
+ "description": "W sierpniu miasto organizuje darmowe kino plenerowe w piątkowe wieczory (start 21:00, polskie i zagraniczne hity ostatnich lat, leżaki, food trucki). Seanse odbywają się równolegle w trzech miejscach: Bulwary Wiślane pod Wawelem, Park Jordana, Zalew Nowohucki.",
+ "name_en": "Free summer open-air cinema in Kraków (hypothetical)",
+ "description_en": "In August the city runs a free open-air cinema on Friday evenings (starts 9 pm, popular Polish and international films of recent years, deckchairs, food trucks). Screenings run at the same time in three places: the Vistula Boulevards below Wawel castle, Jordan Park, and the Nowa Huta Lagoon (Zalew Nowohucki).",
+ "questions": [
+  {"id": "would_go", "type": "noul", "instructions": "This person goes to at least one of these open-air screenings in August.",
+   "yes": "they go at least once", "no": "they do not go"},
+  {"id": "where", "type": "choice", "instructions": "If this person went, which place would they most likely choose?",
+   "options": [{"key": "bulwary", "description": "Vistula Boulevards below Wawel"}, {"key": "park_jordana", "description": "Jordan Park"},
+               {"key": "zalew_nowohucki", "description": "Nowa Huta Lagoon"}, {"key": "none", "description": "would not go to any"}]},
+  {"id": "company", "type": "choice", "instructions": "Who would this person most likely go with?",
+   "options": [{"key": "alone", "description": "alone"}, {"key": "partner", "description": "with a partner"}, {"key": "family_kids", "description": "with family and children"},
+               {"key": "friends", "description": "with friends"}, {"key": "would_not_go", "description": "would not go"}]}
+ ],
+ "main_question": "would_go",
+ "places": [
+  {"name": "Vistula Boulevards below Wawel", "lat": 50.0545, "lon": 19.9330},
+  {"name": "Jordan Park", "lat": 50.0627, "lon": 19.9165},
+  {"name": "Nowa Huta Lagoon", "lat": 50.0789, "lon": 20.0352}
+ ],
+ "leisure_relevant": true
+}

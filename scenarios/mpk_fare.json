@@ -1,0 +1,9 @@
+{
+ "kind": "transit",
+ "name": "Podwyżka biletów MPK o ok. 35% (scenariusz hipotetyczny)",
+ "description": "Od stycznia bilet 20-minutowy kosztuje 6 zł zamiast 4 zł, bilet miesięczny na całe miasto 199 zł zamiast 149 zł. Ulgi dla studentów i seniorów zostają bez zmian (50%), seniorzy 70+ jeżdżą dalej za darmo. Siatka połączeń i częstotliwość się nie zmieniają.",
+ "fare_change_pct": 35,
+ "question": "Czy po tej podwyżce będziesz jeździć komunikacją miejską rzadziej niż dziś?",
+ "name_en": "Kraków public transport fares up about 35% (hypothetical)",
+ "description_en": "From January a 20-minute ticket costs 6 PLN instead of 4 PLN and a monthly city-wide pass costs 199 PLN instead of 149 PLN. Student and senior discounts stay at 50%, and seniors aged 70+ still ride for free. Routes and frequency do not change."
+}

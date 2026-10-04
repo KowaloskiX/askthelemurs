@@ -1,0 +1,8 @@
+{
+ "kind": "policy",
+ "name": "Strefa Czystego Transportu w całym Krakowie (scenariusz hipotetyczny)",
+ "description": "Od 1 lipca 2027 cały Kraków w granicach miasta jest Strefą Czystego Transportu. Nie mogą do niej wjeżdżać auta benzynowe starsze niż ok. 27 lat ani diesle starsze niż ok. 17 lat (orientacyjnie poniżej normy Euro 3 i Euro 4). Mieszkańcy zameldowani w Krakowie mają 2 lata okresu przejściowego na wymianę auta. Kontrola przez kamery, mandat 500 zł. Miasto obiecuje w zamian lepsze powietrze i mniej korków.",
+ "question": "Czy popierasz wprowadzenie tej strefy?",
+ "name_en": "Clean Transport Zone covering all of Kraków (hypothetical)",
+ "description_en": "From 1 July 2027 the whole city of Kraków becomes a Clean Transport Zone. Petrol cars older than about 27 years and diesel cars older than about 17 years (roughly below Euro 3 / Euro 4) may not enter. Residents registered in Kraków get a 2-year transition period to replace their car. Enforcement by cameras, fine 500 PLN. The city promises cleaner air and less traffic."
+}

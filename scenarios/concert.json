@@ -1,0 +1,31 @@
+{
+ "name": "Koncert pop – TAURON Arena, sobota",
+ "description": "Sobota 20:00, koncert dużej polskiej gwiazdy pop w TAURON Arenie Kraków (ul. Lema, Czyżyny). Bilety od 249 zł.",
+ "genre": "pop",
+ "adjacent": {
+  "hip-hop": [
+   "pop"
+  ],
+  "rock": [
+   "pop"
+  ],
+  "elektronika": [
+   "pop"
+  ],
+  "disco polo": [
+   "pop"
+  ]
+ },
+ "target_age": 27,
+ "price": 249,
+ "weekday": "Sat",
+ "venue_latlon": [
+  50.0675,
+  19.9915
+ ],
+ "capacity": 15000,
+ "distance_decay": 0.06,
+ "name_en": "Pop concert at TAURON Arena Kraków, Saturday",
+ "description_en": "Saturday at 8 pm: a concert by a major Polish pop star at TAURON Arena Kraków (Czyżyny district, east of the city centre, about 15 minutes by tram from the Main Square). Tickets from 249 PLN. The concert ends around 11 pm.",
+ "anchor_total": 15000
+}
