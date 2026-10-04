@@ -1,11 +1,22 @@
-numpy
-pandas
-pyproj
-requests
-shapely
-anthropic
-pydantic
-openpyxl
-typesafe-sdk
+# API server and simulation
 fastapi
 uvicorn
+numpy
+pandas
+pyarrow
+pydantic
+shapely
+pyproj
+requests
+openai
+typesafe-sdk
+
+# data fetching and rebuilding out/ (make data, make extra, make travel)
+openpyxl
+pypdf
+scipy
+osmium        # OSM shops and services (src/fetch_osm_poi.py)
+r5py          # travel times, needs Java 21 (src/travel_times.py)
+
+# legacy: src/ask.py and src/agents.py (Claude-based scenario writer and LLM layer)
+anthropic

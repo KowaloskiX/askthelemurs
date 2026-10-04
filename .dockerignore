@@ -2,7 +2,6 @@
 .env.*
 .git
 web/
-archive/
 viz/*
 !viz/venues.json
 docs/
