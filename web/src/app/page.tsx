@@ -94,7 +94,7 @@ function DistrictCard({ name, sim, sel, onClose }: { name: string; sim: ReturnTy
         </div>
       )}
       {!A.length && choroV == null && <p className="mt-2 text-white/55">Zadaj pytanie, żeby zobaczyć wyniki tej dzielnicy.</p>}
-      <p className="mt-2 text-[10.5px] text-white/35">{P.length ? `${P.length.toLocaleString("pl-PL")} symulowanych mieszkańców w tej dzielnicy na mapie.` : ""} Kliknij inną dzielnicę albo puste miejsce, żeby zamknąć.</p>
+      <p className="mt-2 text-[11px] text-white/55">{P.length ? `${P.length.toLocaleString("pl-PL")} symulowanych mieszkańców w tej dzielnicy na mapie.` : ""} Kliknij inną dzielnicę albo puste miejsce, żeby zamknąć.</p>
     </motion.div>
   );
 }
@@ -187,7 +187,7 @@ export default function Home() {
                   {pickedAns[2] && <div className="text-white/70">{policy ? "najważniejszy argument: " + (sim.labels[pickedAns[2]] ?? pickedAns[2]) : "najważniejsze: " + (RL[pickedAns[2]] ?? pickedAns[2])}</div>}
                 </div>
               )}
-              <p className="mt-2 text-[10px] text-white/35">Profil złożony z danych GUS (NSP 2021, BDL, badania kultury i sportu). Pozycja: kratka 1 km.</p>
+              <p className="mt-2 text-[11px] text-white/55">Profil złożony z danych GUS (NSP 2021, BDL, badania kultury i sportu). Pozycja: kratka 1 km.</p>
             </motion.div>
           )}
         </AnimatePresence>

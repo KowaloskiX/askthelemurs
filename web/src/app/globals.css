@@ -3,7 +3,7 @@
 :root { color-scheme: dark; }
 html, body { background: #0b0c10; color: #fff; font-family: var(--font-geist-sans), system-ui, sans-serif; font-size: 14px; }
 
-.glass { background: rgba(16, 18, 26, 0.72); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
+.glass { background: rgba(16, 18, 26, 0.97); backdrop-filter: blur(14px) saturate(140%); -webkit-backdrop-filter: blur(14px) saturate(140%);
   border: 1px solid rgba(255, 255, 255, 0.08); border-radius: 16px; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.35); }
 .msg { max-width: 92%; padding: 9px 12px; border-radius: 14px; line-height: 1.45; }
 .msg.bot { background: rgba(255, 255, 255, 0.06); border-bottom-left-radius: 4px; }
