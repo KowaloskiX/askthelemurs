@@ -1,0 +1,17 @@
+.env
+.env.*
+.git
+web/
+archive/
+viz/*
+!viz/venues.json
+docs/
+**/__pycache__
+# raw downloads only needed to rebuild the data offline
+data/raw/osm/
+data/raw/gtfs/
+data/raw/bo_krakow/
+data/raw/crime_krakow/
+data/raw/pkw_krakow/
+data/raw/*.pdf
+out/*backup*
